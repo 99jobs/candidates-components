@@ -1,18 +1,29 @@
+import { FaUser } from 'react-icons/fa'
 import ButtonWrapper from './style'
 
 interface ButtonProps {
   /**
-   * Button contents
+   * Label do botão
    */
   label: string
-  color: 'red' | 'violet'
+  /**
+   * Label do botão
+   */
+  color: 'default' | 'outlined' | 'ghost'
+  /**
+   * Botão habilitado/desabilidado
+   */
+  disabled: boolean
 }
 
 /**
  * Primary UI component for user interaction
  */
-const Button = ({ label, color }: ButtonProps) => (
-  <ButtonWrapper color={color}>{label}</ButtonWrapper>
+const Button = ({ label, color = 'default', disabled = false }: ButtonProps) => (
+  <ButtonWrapper color={color} disabled={disabled}>
+    <FaUser />
+    {label}
+  </ButtonWrapper>
 )
 
 export default Button

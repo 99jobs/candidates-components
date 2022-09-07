@@ -9,8 +9,24 @@ export default {
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
 export const Default = Template.bind({})
-
 Default.args = {
   label: 'Button',
-  color: 'red',
+}
+
+export const Outlined = Template.bind({})
+Outlined.args = {
+  label: 'Button',
+  color: 'outlined',
+}
+
+export const Ghost = Template.bind({})
+Ghost.args = {
+  label: 'Button',
+  color: 'ghost',
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  label: 'Button',
+  disabled: true,
 }

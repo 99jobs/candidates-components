@@ -1,4 +1,4 @@
-import { FaUser } from 'react-icons/fa'
+import { MdAccountCircle } from 'react-icons/md'
 import ButtonWrapper from './style'
 
 interface ButtonProps {
@@ -18,7 +18,7 @@ interface ButtonProps {
 
 const Button = ({ label, color = 'default', disabled = false }: ButtonProps) => (
   <ButtonWrapper color={color} disabled={disabled}>
-    <FaUser />
+    <MdAccountCircle />
     {label}
   </ButtonWrapper>
 )

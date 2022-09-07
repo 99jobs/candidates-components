@@ -60,7 +60,7 @@ const ButtonWrapper = styled('button', {
   },
 
   '& > svg': {
-    fontSize: 'inherit',
+    fontSize: '$h2',
     marginRight: '$sm2',
   },
 })

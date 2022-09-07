@@ -16,9 +16,6 @@ interface ButtonProps {
   disabled: boolean
 }
 
-/**
- * Primary UI component for user interaction
- */
 const Button = ({ label, color = 'default', disabled = false }: ButtonProps) => (
   <ButtonWrapper color={color} disabled={disabled}>
     <FaUser />

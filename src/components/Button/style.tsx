@@ -7,7 +7,7 @@ const ButtonWrapper = styled('button', {
   fontWeight: '500',
   padding: '12px 19px',
   cursor: 'pointer',
-  transition: 'background-color 0.1s ease-in-out',
+  transition: 'background-color 0.1s ease-in-out, color 0.1s ease-in-out',
   display: 'inline-flex',
   alignItems: 'center',
 
@@ -33,6 +33,7 @@ const ButtonWrapper = styled('button', {
 
         '&:hover, &:active, &:focus': {
           backgroundColor: '$primaryHover',
+          color: '$onPrimary',
         },
       },
       ghost: {
@@ -42,6 +43,7 @@ const ButtonWrapper = styled('button', {
 
         '&:hover, &:active, &:focus': {
           backgroundColor: '$primaryHover',
+          color: '$onPrimary',
         },
       },
     },

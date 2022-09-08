@@ -1,16 +1,23 @@
-import { ComponentStory } from '@storybook/react'
-import Button from './index'
+import { Story } from '@storybook/react'
+import { MdAccountCircle } from 'react-icons/md'
+import Button, { ButtonProps } from './index'
 
 export default {
   title: 'Components/Button',
   component: Button,
 }
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+const Template: Story<ButtonProps> = (args) => <Button {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
   label: 'Button',
+}
+
+export const DefaultWithPrefixIcon = Template.bind({})
+DefaultWithPrefixIcon.args = {
+  label: 'Button',
+  prefixIcon: <MdAccountCircle />,
 }
 
 export const Outlined = Template.bind({})

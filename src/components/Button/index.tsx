@@ -1,7 +1,7 @@
-import { MdAccountCircle } from 'react-icons/md'
+import { ReactNode } from 'react'
 import ButtonWrapper from './style'
 
-interface ButtonProps {
+export interface ButtonProps {
   /**
    * Label do botão
    */
@@ -14,12 +14,18 @@ interface ButtonProps {
    * Botão habilitado/desabilidado
    */
   disabled: boolean
+  /**
+   * Ícone do botão do lado esquerdo
+   */
+  prefixIcon?: ReactNode
 }
 
-const Button = ({ label, color = 'default', disabled = false }: ButtonProps) => (
+const Button = ({ label, color = 'default', disabled = false, prefixIcon }: ButtonProps) => (
   <ButtonWrapper color={color} disabled={disabled}>
-    <MdAccountCircle />
-    {label}
+    <>
+      {prefixIcon}
+      {label}
+    </>
   </ButtonWrapper>
 )
 

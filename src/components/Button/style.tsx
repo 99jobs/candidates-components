@@ -1,15 +1,17 @@
 import { styled } from '../../configs/stitches.config'
 
 const ButtonWrapper = styled('button', {
+  height: '44px',
   borderRadius: '$sm',
   fontFamily: '$sans',
   fontSize: '$sub',
   fontWeight: '500',
-  padding: '12px 19px',
   cursor: 'pointer',
   transition: 'background-color 0.1s ease-in-out, color 0.1s ease-in-out',
   display: 'inline-flex',
   alignItems: 'center',
+  justifyContent: 'center',
+  paddingX: 19,
 
   defaultVariants: {
     color: 'default',
@@ -59,7 +61,7 @@ const ButtonWrapper = styled('button', {
     },
   },
 
-  '& > svg': {
+  '& > svg:only-of-type': {
     fontSize: '$h2',
     marginRight: '$sm2',
   },

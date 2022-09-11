@@ -22,10 +22,7 @@ export interface ButtonProps {
 
 const Button = ({ label, color = 'default', disabled = false, prefixIcon }: ButtonProps) => (
   <ButtonWrapper color={color} disabled={disabled}>
-    <>
-      {prefixIcon}
-      {label}
-    </>
+    <>{prefixIcon}</>
   </ButtonWrapper>
 )
 

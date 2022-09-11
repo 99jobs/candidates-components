@@ -4,7 +4,6 @@ name: 'Storybook Tests'
 # Event for the workflow
 on:
   pull_request:
-    types: [opened, reopened]
 
 # List of jobs
 jobs:

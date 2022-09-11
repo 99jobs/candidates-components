@@ -20,9 +20,12 @@ export interface ButtonProps {
   prefixIcon?: ReactNode
 }
 
-const Button = ({ color = 'default', disabled = false, prefixIcon }: ButtonProps) => (
+const Button = ({ label, color = 'default', disabled = false, prefixIcon }: ButtonProps) => (
   <ButtonWrapper color={color} disabled={disabled}>
-    <>{prefixIcon}</>
+    <>
+      {prefixIcon}
+      {label}
+    </>
   </ButtonWrapper>
 )
 

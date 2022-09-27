@@ -4,6 +4,8 @@
   "private": true,
   "main": "./src/index.tsx",
   "dependencies": {
+    "@radix-ui/react-popover": "1.0.0",
+    "@radix-ui/react-slot": "^1.0.0",
     "@stitches/react": "^1.2.8",
     "@storybook/addon-docs": "^6.5.10",
     "@testing-library/jest-dom": "^5.16.5",

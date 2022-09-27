@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { forwardRef, ReactNode } from 'react'
 import ButtonWrapper from './style'
 
 export interface ButtonProps {
@@ -7,26 +7,36 @@ export interface ButtonProps {
    */
   label: string
   /**
+   * Tipo do botão
+   */
+  type?: 'button' | 'submit' | 'reset'
+  /**
    * Label do botão
    */
-  color: 'default' | 'outlined' | 'ghost'
+  color?: 'default' | 'outlined' | 'ghost'
   /**
    * Botão habilitado/desabilidado
    */
-  disabled: boolean
+  disabled?: boolean
   /**
    * Ícone do botão do lado esquerdo
    */
   prefixIcon?: ReactNode
 }
 
-const Button = ({ label, color = 'default', disabled = false, prefixIcon }: ButtonProps) => (
-  <ButtonWrapper color={color} disabled={disabled}>
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => (
+  <ButtonWrapper
+    type={props.type}
+    color={props.color}
+    disabled={props.disabled}
+    {...props}
+    ref={ref}
+  >
     <>
-      {prefixIcon}
-      {label}
+      {props.prefixIcon}
+      {props.label}
     </>
   </ButtonWrapper>
-)
+))
 
-export default Button
+Button.displayName = 'Button'

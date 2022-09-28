@@ -35,6 +35,7 @@ jobs:
         run: npm run build-storybook
 
   deploy_storybook:
+    needs: build_storybook
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

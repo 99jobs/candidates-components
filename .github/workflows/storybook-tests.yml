@@ -7,7 +7,7 @@ on:
 
 # List of jobs
 jobs:
-  test:
+  accessibility_and_interaction_tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:

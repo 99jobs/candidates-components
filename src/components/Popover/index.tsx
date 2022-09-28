@@ -19,12 +19,12 @@ export interface PopoverProps {
   contentNode: ReactNode
 }
 
-export const Popover = forwardRef<HTMLElement, PopoverProps>((props) => (
+export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => (
   <PopoverRoot>
     <PopoverTrigger asChild>{props.triggerNode}</PopoverTrigger>
 
     <PopoverPortal>
-      <PopoverContent>
+      <PopoverContent ref={ref}>
         {props.contentNode}
 
         <PopoverClose />

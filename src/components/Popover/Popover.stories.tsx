@@ -1,7 +1,6 @@
 import { expect } from '@storybook/jest'
 import { Story } from '@storybook/react'
-import { within } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { userEvent, waitFor, within } from '@storybook/testing-library'
 import { Button } from '../Button'
 import { Popover, PopoverProps } from './index'
 
@@ -19,21 +18,20 @@ Default.args = {
 }
 
 Default.play = async ({ canvasElement }) => {
-  // Cria o canvas
   const canvas = within(canvasElement)
 
   // Clica no botão que aciona o popover
   userEvent.click(canvas.getByRole('button'))
 
   // Como o popover criado não vam no canvasElement, e sim na body, precisamos "procurar" a body a partir do botão que acionou o popover
-  const body = canvasElement.closest('body')
-  // Cria o canvas da body agora
-  const bodyCanvas = within(body || canvasElement)
+  const body = within(canvasElement.closest('body') ?? canvasElement)
 
-  // Procura o popover a partir de uma role
-  const popover = bodyCanvas.getByRole('dialog')
+  // waitFor usado para dar tempo do popover aparecer
+  await waitFor(() => {
+    const popover = body.getByRole('dialog')
 
-  // Esperamos que o popover tenha sido criado e que ele contenha o elemento passado no parâmetro contentNode
-  expect(popover).toBeInTheDocument()
-  expect(popover.innerHTML).toContain('<p>Hello World!!</p>')
+    // Esperamos que o popover tenha sido criado e que ele contenha o elemento passado no parâmetro contentNode
+    expect(popover).toBeInTheDocument()
+    expect(popover.innerHTML).toContain('<p>Hello World!!</p>')
+  })
 }

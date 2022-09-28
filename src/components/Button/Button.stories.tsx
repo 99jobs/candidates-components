@@ -11,7 +11,7 @@ const Template: Story<ButtonProps> = (args) => <Button {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  label: 'Button Default',
+  label: 'Button',
 }
 
 export const DefaultWithPrefixIcon = Template.bind({})

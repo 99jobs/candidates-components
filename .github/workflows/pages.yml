@@ -21,8 +21,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
+  build_storybook:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+        run: npm install
+      - name: Build Storybook
+        run: npm run build-storybook
+
+  deploy_storybook:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

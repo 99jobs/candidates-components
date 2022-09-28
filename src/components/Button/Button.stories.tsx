@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react'
 import { MdAccountCircle } from 'react-icons/md'
-import Button, { ButtonProps } from './index'
+import { Button, ButtonProps } from './index'
 
 export default {
   title: 'Components/Button',

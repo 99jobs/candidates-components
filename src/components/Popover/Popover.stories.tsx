@@ -32,6 +32,6 @@ Default.play = async ({ canvasElement }) => {
 
     // Esperamos que o popover tenha sido criado e que ele contenha o elemento passado no parâmetro contentNode
     expect(popover).toBeInTheDocument()
-    expect(popover.innerHTML).toContain('<p>Hello Word!!</p>')
+    expect(popover.innerHTML).toContain('<p>Hello World!!</p>')
   })
 }

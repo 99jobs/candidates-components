@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build e Deploy do Storybook
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
+  build_and_deploy_storybook:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️

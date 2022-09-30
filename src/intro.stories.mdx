@@ -6,7 +6,11 @@ import { config } from './configs/stitches.config'
 # Cores
 
 <ColorPalette>
-  {Object.keys(config.theme.colors).map((k) => {
-    return <ColorItem title={k} colors={{ [k]: config.theme.colors[k] }} />
-  })}
+  {Object.keys(config.theme.colors).map((color, index, colors) => {
+    return color.startsWith('on') ? null : <ColorItem title={color} colors={{
+      [color]: config.theme.colors[color],
+      [colors[index+1]]: config.theme.colors[colors[index+1]],
+     }} />
+})}
+
 </ColorPalette>

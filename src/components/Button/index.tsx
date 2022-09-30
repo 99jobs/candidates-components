@@ -5,7 +5,7 @@ export interface ButtonProps {
   /**
    * Label do botão
    */
-  label: string
+  label?: string
   /**
    * Tipo do botão
    */
@@ -13,7 +13,7 @@ export interface ButtonProps {
   /**
    * Label do botão
    */
-  color?: 'default' | 'outlined' | 'ghost'
+  color?: 'default' | 'outline' | 'ghost'
   /**
    * Botão habilitado/desabilidado
    */
@@ -22,6 +22,10 @@ export interface ButtonProps {
    * Ícone do botão do lado esquerdo
    */
   prefixIcon?: ReactNode
+  /**
+   * Ícone do botão do lado direito
+   */
+  sufixIcon?: ReactNode
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => (
@@ -35,6 +39,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) =>
     <>
       {props.prefixIcon}
       {props.label}
+      {props.sufixIcon}
     </>
   </ButtonWrapper>
 ))

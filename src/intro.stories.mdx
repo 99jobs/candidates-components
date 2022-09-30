@@ -7,10 +7,15 @@ import { config } from './configs/stitches.config'
 
 <ColorPalette>
   {Object.keys(config.theme.colors).map((color, index, colors) => {
-    return color.startsWith('on') ? null : <ColorItem title={color} colors={{
-      [color]: config.theme.colors[color],
-      [colors[index+1]]: config.theme.colors[colors[index+1]],
-     }} />
-})}
-
+    return color.startsWith('on') ? null : (
+      <ColorItem
+        key={index}
+        title={color}
+        colors={{
+          [color]: config.theme.colors[color],
+          [colors[index + 1]]: config.theme.colors[colors[index + 1]],
+        }}
+      />
+    )
+  })}
 </ColorPalette>

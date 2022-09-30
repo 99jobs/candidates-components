@@ -1,11 +1,15 @@
-import { Story } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import { MdPersonOutline } from 'react-icons/md'
 import { Button, ButtonProps } from './index'
 
 export default {
   title: 'Components/Button',
   component: Button,
-}
+  argTypes: {
+    prefixIcon: { control: false },
+    sufixIcon: { control: false },
+  },
+} as Meta
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />
 
@@ -28,7 +32,9 @@ DefaultWithSufixIcon.args = {
 
 export const DefaultWithoutLabel = Template.bind({})
 DefaultWithoutLabel.args = {
+  label: 'Botão sem label',
   sufixIcon: <MdPersonOutline />,
+  hideLabel: true,
 }
 
 export const Outlined = Template.bind({})

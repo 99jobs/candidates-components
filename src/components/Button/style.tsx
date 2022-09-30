@@ -1,6 +1,6 @@
 import { styled } from '../../configs/stitches.config'
 
-const ButtonWrapper = styled('button', {
+export const ButtonWrapper = styled('button', {
   width: '100%',
   height: '44px',
   borderRadius: '$sm',
@@ -70,5 +70,3 @@ const ButtonWrapper = styled('button', {
     svgFontSize: 16,
   },
 })
-
-export default ButtonWrapper

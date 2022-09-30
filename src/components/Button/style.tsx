@@ -1,17 +1,22 @@
 import { styled } from '../../configs/stitches.config'
 
 const ButtonWrapper = styled('button', {
+  width: '100%',
   height: '44px',
   borderRadius: '$sm',
-  fontFamily: '$sans',
-  fontSize: '$sub',
-  fontWeight: '500',
+  fontSize: 14,
+  fontWeight: 700,
   cursor: 'pointer',
   transition: 'background-color 0.1s ease-in-out, color 0.1s ease-in-out',
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  paddingX: 19,
+  paddingX: 22,
+  gap: '$md1',
+
+  '@md': {
+    width: 'auto',
+  },
 
   defaultVariants: {
     color: 'default',
@@ -20,50 +25,49 @@ const ButtonWrapper = styled('button', {
   variants: {
     color: {
       default: {
-        backgroundColor: '$primary',
-        color: '$onPrimary',
-        border: '1px solid transparent',
+        backgroundColor: '$bluePrimary',
+        color: '$onBluePrimary',
 
-        '&:hover, &:active, &:focus': {
-          backgroundColor: '$primaryHover',
+        '&:hover': {
+          backgroundColor: '$bluePrimaryDark',
+          color: '$onBluePrimaryDark',
         },
       },
-      outlined: {
+      outline: {
         backgroundColor: 'transparent',
-        color: '$primary',
-        border: '1px solid $primary',
+        color: '$bluePrimary',
+        border: '1px solid $bluePrimary',
 
-        '&:hover, &:active, &:focus': {
-          backgroundColor: '$primaryHover',
-          color: '$onPrimary',
+        '&:hover': {
+          backgroundColor: '$bluePrimaryDark',
+          color: '$onBluePrimaryDark',
+          borderColor: '$bluePrimaryDark',
         },
       },
       ghost: {
         backgroundColor: 'transparent',
-        color: '$primary',
-        border: '1px solid transparent',
+        color: '$bluePrimary',
 
-        '&:hover, &:active, &:focus': {
-          backgroundColor: '$primaryHover',
-          color: '$onPrimary',
+        '&:hover': {
+          backgroundColor: '$bluePrimaryDark',
+          color: '$onBluePrimaryDark',
         },
       },
     },
   },
 
   '&[disabled]': {
-    backgroundColor: '$primaryDisabled',
-    color: '$onPrimary',
-    border: '1px solid transparent',
+    backgroundColor: '$grayLight',
+    color: '#4D5056',
 
-    '&:hover, &:active, &:focus': {
-      backgroundColor: '$primaryDisabled',
+    '&:hover': {
+      backgroundColor: '$grayLight',
+      color: '#4D5056',
     },
   },
 
-  '& > svg:only-of-type': {
-    fontSize: '$h2',
-    marginRight: '$sm2',
+  '& > svg': {
+    svgFontSize: 16,
   },
 })
 

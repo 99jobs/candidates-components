@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react'
-import { MdAccountCircle } from 'react-icons/md'
+import { MdPersonOutline } from 'react-icons/md'
 import { Button, ButtonProps } from './index'
 
 export default {
@@ -11,19 +11,30 @@ const Template: Story<ButtonProps> = (args) => <Button {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  label: 'Button :)',
+  label: 'Button',
 }
 
 export const DefaultWithPrefixIcon = Template.bind({})
 DefaultWithPrefixIcon.args = {
   label: 'Button',
-  prefixIcon: <MdAccountCircle />,
+  prefixIcon: <MdPersonOutline />,
+}
+
+export const DefaultWithSufixIcon = Template.bind({})
+DefaultWithSufixIcon.args = {
+  label: 'Button',
+  sufixIcon: <MdPersonOutline />,
+}
+
+export const DefaultWithoutLabel = Template.bind({})
+DefaultWithoutLabel.args = {
+  sufixIcon: <MdPersonOutline />,
 }
 
 export const Outlined = Template.bind({})
 Outlined.args = {
   label: 'Button',
-  color: 'outlined',
+  color: 'outline',
 }
 
 export const Ghost = Template.bind({})

@@ -59,6 +59,7 @@ export const ButtonWrapper = styled('button', {
   '&[disabled]': {
     backgroundColor: '$grayLight',
     color: '#4D5056',
+    border: 'none',
 
     '&:hover': {
       backgroundColor: '$grayLight',

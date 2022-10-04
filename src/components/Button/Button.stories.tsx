@@ -32,9 +32,8 @@ DefaultWithSufixIcon.args = {
 
 export const DefaultWithoutLabel = Template.bind({})
 DefaultWithoutLabel.args = {
-  label: 'Botão sem label',
   sufixIcon: <MdPersonOutline />,
-  hideLabel: true,
+  'aria-label': 'Botão sem label',
 }
 
 export const Outlined = Template.bind({})

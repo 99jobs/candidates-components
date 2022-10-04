@@ -1,6 +1,6 @@
 import { styled } from '../../configs/stitches.config'
 
-export const ButtonWrapper = styled('button', {
+export const StyledButton = styled('button', {
   width: '100%',
   height: '44px',
   borderRadius: '$sm',
@@ -58,12 +58,12 @@ export const ButtonWrapper = styled('button', {
 
   '&[disabled]': {
     backgroundColor: '$grayLight',
-    color: '#4D5056',
+    color: '$gray',
     border: 'none',
 
     '&:hover': {
       backgroundColor: '$grayLight',
-      color: '#4D5056',
+      color: '$gray',
     },
   },
 

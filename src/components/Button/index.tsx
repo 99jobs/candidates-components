@@ -1,23 +1,16 @@
-import { ElementRef, forwardRef, ReactElement } from 'react'
-import { ButtonWrapper } from './style'
+import { ComponentProps } from '@stitches/react'
+import { ReactElement } from 'react'
+import { StyledButton } from './style'
 
-export interface ButtonProps {
+export interface ButtonProps extends ComponentProps<typeof StyledButton> {
   /**
    * Label do botão
    */
-  label: string
-  /**
-   * Tipo do botão
-   */
-  type?: 'button' | 'submit' | 'reset'
+  label?: string
   /**
    * Label do botão
    */
   color?: 'default' | 'outline' | 'ghost'
-  /**
-   * Botão habilitado/desabilidado
-   */
-  disabled?: boolean
   /**
    * Ícone do botão do lado esquerdo
    */
@@ -26,29 +19,14 @@ export interface ButtonProps {
    * Ícone do botão do lado direito
    */
   sufixIcon?: ReactElement
-  /**
-   * Se exibe ou não a label do botão. Quando setado para não exibir, o texto da label aparece somente no aria-label e não como texto do botão
-   */
-  hideLabel?: boolean
 }
 
-export const Button = forwardRef<ElementRef<typeof ButtonWrapper>, ButtonProps>(
-  ({ label, type, color, disabled, prefixIcon, sufixIcon, hideLabel, ...props }, ref) => (
-    <ButtonWrapper
-      type={type}
-      color={color}
-      disabled={disabled}
-      aria-label={label}
-      ref={ref}
-      {...props}
-    >
-      <>
-        {prefixIcon}
-        {!hideLabel && label}
-        {sufixIcon}
-      </>
-    </ButtonWrapper>
-  )
+export const Button = ({ label, color, prefixIcon, sufixIcon, ...props }: ButtonProps) => (
+  <StyledButton color={color} aria-label={props['aria-label']} {...props}>
+    <>
+      {prefixIcon}
+      {label}
+      {sufixIcon}
+    </>
+  </StyledButton>
 )
-
-Button.displayName = 'Button'

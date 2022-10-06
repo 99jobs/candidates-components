@@ -18,4 +18,17 @@ export const parameters = {
   },
 }
 
+export const argTypes = {
+  css: {
+    table: {
+      disable: true,
+    },
+  },
+  ref: {
+    table: {
+      disable: true,
+    },
+  },
+}
+
 globalStyles()

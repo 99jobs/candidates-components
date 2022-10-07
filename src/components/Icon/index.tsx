@@ -1,3 +1,8 @@
 import * as AccessibleIcon from '@radix-ui/react-accessible-icon'
+import { ComponentProps } from 'react'
 
-export const Icon = () => <AccessibleIcon.Root label="ícone teste">x</AccessibleIcon.Root>
+export interface IconProps extends Required<ComponentProps<typeof AccessibleIcon.Root>> {}
+
+export const Icon = ({ label, children }: IconProps) => (
+  <AccessibleIcon.Root label={label}>{children}</AccessibleIcon.Root>
+)

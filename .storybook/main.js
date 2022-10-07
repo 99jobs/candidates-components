@@ -15,4 +15,20 @@ module.exports = {
   features: {
     interactionsDebugger: true,
   },
+  typescript: {
+    // https://storybook.js.org/docs/react/configure/typescript
+    // https://github.com/storybookjs/storybook/issues/12129#issuecomment-1138087474
+    check: false,
+    checkOptions: {},
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      shouldRemoveUndefinedFromOptional: true,
+      propFilter: (prop) => {
+        return prop.parent
+          ? /@radix-ui/.test(prop.parent.fileName) || !/node_modules/.test(prop.parent.fileName)
+          : true
+      },
+    },
+  },
 }

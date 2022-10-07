@@ -5,10 +5,6 @@ import { Button, ButtonProps } from './index'
 export default {
   title: 'Components/Button',
   component: Button,
-  argTypes: {
-    prefixIcon: { control: false },
-    sufixIcon: { control: false },
-  },
 } as Meta
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />

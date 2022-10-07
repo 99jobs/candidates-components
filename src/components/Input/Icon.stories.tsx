@@ -1,8 +1,8 @@
-import type { Meta, Story } from '@storybook/react'
-import { Input, type InputProps } from '.'
+import { Meta, Story } from '@storybook/react'
+import { Input, InputProps } from '.'
 
 export default {
-  title: 'Components/Form/Input',
+  title: 'Components/Input',
   component: Input,
 } as Meta<InputProps>
 

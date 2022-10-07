@@ -1,4 +1,4 @@
-import { useId, useState, type ChangeEvent, type ComponentProps } from 'react'
+import { ChangeEvent, ComponentProps, useId, useState } from 'react'
 import {
   StyledInputField,
   StyledInputHelperText,

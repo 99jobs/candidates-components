@@ -70,7 +70,7 @@ export const globalStyles = globalCss({
     boxSizing: 'border-box',
     fontSize: '$body',
     fontFamily: '$sans',
-    lineHeight: 'normal',
+    lineHeight: '1.4',
   },
 
   ':root': {

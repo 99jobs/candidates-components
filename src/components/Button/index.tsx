@@ -4,25 +4,25 @@ import { StyledButton } from './style'
 
 export interface ButtonProps extends ComponentProps<typeof StyledButton> {
   /**
-   * Label do botão
+   * Button label
    */
   label?: string
   /**
-   * Label do botão
+   * Button color
    */
   color?: 'default' | 'outline' | 'ghost'
   /**
-   * Ícone do botão do lado esquerdo
+   * Button left icon
    */
   prefixIcon?: ReactElement
   /**
-   * Ícone do botão do lado direito
+   * Button right icon
    */
   sufixIcon?: ReactElement
 }
 
 export const Button = ({ label, color, prefixIcon, sufixIcon, ...props }: ButtonProps) => (
-  <StyledButton color={color} aria-label={props['aria-label']} {...props}>
+  <StyledButton color={color} {...props}>
     <>
       {prefixIcon}
       {label}

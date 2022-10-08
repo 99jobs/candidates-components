@@ -60,6 +60,7 @@ export const StyledButton = styled('button', {
     backgroundColor: '$grayLight',
     color: '$gray',
     border: 'none',
+    cursor: 'not-allowed',
 
     '&:hover': {
       backgroundColor: '$grayLight',

@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { MdOutlineVisibility, MdPerson, MdVisibility } from 'react-icons/md'
-import { Icon, IconProps } from '.'
+import { Icon } from '.'
 
 export default {
   title: 'Components/Icon',
@@ -15,9 +15,9 @@ export default {
       },
     },
   },
-} as Meta<IconProps>
+} as ComponentMeta<typeof Icon>
 
-const Template: Story<IconProps> = (args) => <Icon {...args} />
+const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

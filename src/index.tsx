@@ -9,4 +9,3 @@ export * from 'react-icons/md'
  */
 export { Button } from './components/Button'
 export { Modal } from './components/Modal'
-export { Popover } from './components/Popover'

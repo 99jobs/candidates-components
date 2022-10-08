@@ -1,4 +1,4 @@
-import { ComponentProps } from '@stitches/react'
+import { type ComponentProps } from 'react'
 import {
   StyledModalClose,
   StyledModalContent,

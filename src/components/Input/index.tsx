@@ -1,4 +1,4 @@
-import { ChangeEvent, ComponentProps, useId, useState } from 'react'
+import { useId, useState, type ChangeEvent, type ComponentProps } from 'react'
 import {
   StyledInputField,
   StyledInputHelperText,
@@ -6,7 +6,7 @@ import {
   StyledInputWrapper,
 } from './style'
 
-export type InputProps = ComponentProps<typeof StyledInputField> & {
+export interface InputProps extends ComponentProps<typeof StyledInputField> {
   label: string
   helperText?: string
 }

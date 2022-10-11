@@ -18,6 +18,10 @@ export interface ButtonProps extends ComponentProps<typeof StyledButton> {
    * Button right icon
    */
   sufixIcon?: ReactNode
+  /**
+   * Button label for screen readers, but not visible in UI
+   */
+  'aria-label'?: string
 }
 
 export const Button = ({ label, color, prefixIcon, sufixIcon, ...props }: ButtonProps) => (

@@ -1,4 +1,4 @@
-import { useId, useState, type ChangeEvent, type ComponentProps } from 'react'
+import { useId, useState, type ChangeEvent, type ComponentProps, type ReactNode } from 'react'
 import {
   StyledInputField,
   StyledInputHelperText,
@@ -7,11 +7,33 @@ import {
 } from './style'
 
 export interface InputProps extends ComponentProps<typeof StyledInputField> {
+  /**
+   * The label of input
+   */
   label: string
+  /**
+   * The text bellow input
+   */
   helperText?: string
+  /**
+   * The input hint text
+   */
+  placeholder?: string
+  /**
+   * The input right icon button
+   */
+  sufixIconButton?: ReactNode
 }
 
-export const Input = ({ label, helperText, type, onChange, placeholder, ...props }: InputProps) => {
+export const Input = ({
+  label,
+  helperText,
+  type,
+  onChange,
+  placeholder,
+  sufixIconButton,
+  ...props
+}: InputProps) => {
   const id = useId()
   const [isActive, setIsActive] = useState(false)
 
@@ -21,7 +43,7 @@ export const Input = ({ label, helperText, type, onChange, placeholder, ...props
   }
 
   return (
-    <StyledInputWrapper data-is-active={isActive}>
+    <StyledInputWrapper data-is-active={isActive} data-has-icon={sufixIconButton != null}>
       <StyledInputLabel htmlFor={id}>{label}</StyledInputLabel>
 
       <StyledInputField
@@ -31,6 +53,8 @@ export const Input = ({ label, helperText, type, onChange, placeholder, ...props
         onChange={handleInput}
         {...props}
       />
+
+      {sufixIconButton}
 
       {helperText && <StyledInputHelperText>{helperText}</StyledInputHelperText>}
     </StyledInputWrapper>

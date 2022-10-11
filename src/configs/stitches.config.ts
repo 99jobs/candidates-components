@@ -5,16 +5,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
   createStitches({
     theme: {
       colors,
-      space: {
-        sm1: '4px',
-        sm2: '8px',
-        md1: '12px',
-        md2: '16px',
-        md3: '20px',
-        lg1: '24px',
-        lg2: '28px',
-        lg3: '32px',
-      },
+      space: {},
       fontSizes: {
         h1: 'var(--h1)',
         h2: 'var(--h2)',
@@ -70,7 +61,7 @@ export const globalStyles = globalCss({
     boxSizing: 'border-box',
     fontSize: '$body',
     fontFamily: '$sans',
-    lineHeight: '1.4',
+    lineHeight: '1.36',
   },
 
   ':root': {

@@ -47,7 +47,7 @@ DefaultWithSufixIcon.args = {
 export const DefaultWithoutLabel = Template.bind({})
 DefaultWithoutLabel.args = {
   prefixIcon: <MdPersonOutline />,
-  'aria-label': 'Botão sem label',
+  'aria-label': 'Botão para salvar o formulário de Dados Pessoais',
 }
 
 export const Outlined = Template.bind({})

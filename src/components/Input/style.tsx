@@ -54,22 +54,52 @@ export const StyledInputWrapper = styled('div', {
     },
   },
 
-  '&:focus-within, &[data-is-active="true"]': {
+  '&:focus-within': {
     [`& ${StyledInputLabel}`]: {
-      top: 2,
-      fontSize: '$small',
       color: '$bluePrimary',
     },
 
     [`& ${StyledInputField}`]: {
       borderColor: '$bluePrimary',
-      '&::placeholder': {
-        opacity: 1,
-      },
     },
 
     [`& ${StyledInputHelperText}`]: {
       color: '$bluePrimary',
+    },
+
+    [`& ${StyledButton}`]: {
+      color: '$bluePrimary',
+    },
+  },
+
+  '&:focus-within, &[data-is-active="true"]': {
+    [`& ${StyledInputLabel}`]: {
+      top: 2,
+      fontSize: '$small',
+    },
+
+    [`& ${StyledInputField}`]: {
+      '&::placeholder': {
+        opacity: 1,
+      },
+    },
+  },
+
+  '&[data-has-error="true"]': {
+    [`& ${StyledInputLabel}`]: {
+      color: '$redSystemDark',
+    },
+
+    [`& ${StyledInputField}`]: {
+      borderColor: '$redSystemDark',
+    },
+
+    [`& ${StyledInputHelperText}`]: {
+      color: '$redSystemDark',
+    },
+
+    [`& ${StyledButton}`]: {
+      color: '$redSystemDark',
     },
   },
 

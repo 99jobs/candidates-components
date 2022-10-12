@@ -1,4 +1,13 @@
-import { useId, useState, type ChangeEvent, type ComponentProps, type ReactNode } from 'react'
+import {
+  forwardRef,
+  useId,
+  useState,
+  type ChangeEvent,
+  type ComponentProps,
+  type ReactNode,
+} from 'react'
+import { MdVisibility, MdVisibilityOff } from 'react-icons/md'
+import { Button } from '../Button'
 import {
   StyledInputField,
   StyledInputHelperText,
@@ -8,55 +17,83 @@ import {
 
 export interface InputProps extends ComponentProps<typeof StyledInputField> {
   /**
-   * The label of input
+   * A label do input
    */
   label: string
   /**
-   * The text bellow input
-   */
-  helperText?: string
-  /**
-   * The input hint text
+   * O placeholder do input
    */
   placeholder?: string
   /**
-   * The input right icon button
+   * O ícone de botão que fica do lado direito do input
    */
   sufixIconButton?: ReactNode
+  /**
+   * O texto indicando o erro que fica abaixo do input. Esse texto substituí o `helperText`
+   */
+  errorText?: string
+  /**
+   * O texto que fica abaixo do input
+   */
+  helperText?: string
+  /**
+   * Quando `true` é **automaticamente** adicionado um `sufixIconButton` com o efeito de exibir/esconder a senha digitada e o type do input é alterado para password
+   */
+  showAndHidePasswordButton?: boolean
 }
 
-export const Input = ({
-  label,
-  helperText,
-  type,
-  onChange,
-  placeholder,
-  sufixIconButton,
-  ...props
-}: InputProps) => {
-  const id = useId()
-  const [isActive, setIsActive] = useState(false)
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      label,
+      placeholder,
+      sufixIconButton,
+      errorText,
+      helperText,
+      showAndHidePasswordButton = false,
+      ...props
+    },
+    ref
+  ) => {
+    const id = useId()
+    const [isActive, setIsActive] = useState(false)
+    const [inputType, setInputType] = useState(props.type)
 
-  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setIsActive(e.currentTarget.value !== '')
-    if (onChange) onChange(e)
-  }
+    const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
+      setIsActive(e.target.value !== '')
+    }
 
-  return (
-    <StyledInputWrapper data-is-active={isActive} data-has-icon={sufixIconButton != null}>
-      <StyledInputLabel htmlFor={id}>{label}</StyledInputLabel>
+    const handleInputType = () => {
+      setInputType(inputType === 'password' ? 'text' : 'password')
+    }
 
-      <StyledInputField
-        type={type}
-        id={id}
-        placeholder={placeholder}
+    return (
+      <StyledInputWrapper
+        data-is-active={isActive}
+        data-has-icon={sufixIconButton !== undefined || showAndHidePasswordButton}
+        data-has-error={errorText !== undefined}
         onChange={handleInput}
-        {...props}
-      />
+      >
+        <StyledInputLabel htmlFor={id}>{label}</StyledInputLabel>
 
-      {sufixIconButton}
+        <StyledInputField id={id} placeholder={placeholder} ref={ref} {...props} type={inputType} />
 
-      {helperText && <StyledInputHelperText>{helperText}</StyledInputHelperText>}
-    </StyledInputWrapper>
-  )
-}
+        {showAndHidePasswordButton ? (
+          <Button
+            aria-label="Exibir senha"
+            prefixIcon={inputType === 'password' ? <MdVisibility /> : <MdVisibilityOff />}
+            onClick={handleInputType}
+          />
+        ) : (
+          sufixIconButton
+        )}
+
+        {(errorText || helperText) && (
+          <StyledInputHelperText role="alert">{errorText || helperText}</StyledInputHelperText>
+        )}
+      </StyledInputWrapper>
+    )
+  }
+)
+
+Input.displayName = 'Input'

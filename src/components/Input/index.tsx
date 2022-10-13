@@ -37,7 +37,7 @@ export interface InputProps extends ComponentProps<typeof StyledInputField> {
    */
   helperText?: string
   /**
-   * Quando `true` é **automaticamente** adicionado um `sufixIconButton` com o efeito de exibir/esconder a senha digitada e o type do input é alterado para password
+   * Quando o valor é `true`, **automaticamente** adiciona um `sufixIconButton` com o efeito de exibir/esconder a senha digitada e o type do input é alterado para password
    */
   showAndHidePasswordButton?: boolean
 }

@@ -3,23 +3,23 @@ import { StyledButton } from './style'
 
 export interface ButtonProps extends ComponentProps<typeof StyledButton> {
   /**
-   * Button label
+   * O texto do botão
    */
   label?: string
   /**
-   * Button color
+   * A cor do botão
    */
   color?: 'default' | 'outline' | 'ghost'
   /**
-   * Button left icon
+   * O ícone que fica ao lado esquerdo do texto
    */
   prefixIcon?: ReactNode
   /**
-   * Button right icon
+   * O ícone que fica ao lado direito do texto
    */
   sufixIcon?: ReactNode
   /**
-   * Button label for screen readers, but not visible in UI
+   * A label do botão. Não é visível na UI, apenas para screen readers.
    */
   'aria-label'?: string
 }

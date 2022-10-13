@@ -1,17 +1,31 @@
-import { Meta, Story } from '@storybook/react'
-import { MdPersonOutline } from 'react-icons/md'
-import { Button, ButtonProps } from './index'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { MdOutlineVisibility, MdPerson, MdPersonOutline, MdVisibility } from 'react-icons/md'
+import { Button } from './index'
 
 export default {
   title: 'Components/Button',
   component: Button,
   argTypes: {
-    prefixIcon: { control: false },
-    sufixIcon: { control: false },
+    prefixIcon: {
+      options: ['Example icon 1', 'Example icon 2', 'Example icon 3'],
+      mapping: {
+        'Example icon 1': <MdOutlineVisibility />,
+        'Example icon 2': <MdVisibility />,
+        'Example icon 3': <MdPerson />,
+      },
+    },
+    sufixIcon: {
+      options: ['Example icon 1', 'Example icon 2', 'Example icon 3'],
+      mapping: {
+        'Example icon 1': <MdOutlineVisibility />,
+        'Example icon 2': <MdVisibility />,
+        'Example icon 3': <MdPerson />,
+      },
+    },
   },
-} as Meta
+} as ComponentMeta<typeof Button>
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
@@ -32,8 +46,8 @@ DefaultWithSufixIcon.args = {
 
 export const DefaultWithoutLabel = Template.bind({})
 DefaultWithoutLabel.args = {
-  sufixIcon: <MdPersonOutline />,
-  'aria-label': 'Botão sem label',
+  prefixIcon: <MdPersonOutline />,
+  'aria-label': 'Botão para salvar o formulário de Dados Pessoais',
 }
 
 export const Outlined = Template.bind({})

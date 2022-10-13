@@ -1,14 +1,14 @@
-import { Meta, Story } from '@storybook/react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { useState } from 'react'
 import { Button } from '../Button'
-import { Modal, ModalProps } from './index'
+import { Modal } from './index'
 
 export default {
   title: 'Components/Modal',
   component: Modal,
-} as Meta
+} as ComponentMeta<typeof Modal>
 
-const Template: Story<ModalProps> = (args) => {
+const Template: ComponentStory<typeof Modal> = (args) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (

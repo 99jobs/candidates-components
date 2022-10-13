@@ -4,6 +4,7 @@
   "private": true,
   "main": "./src/index.tsx",
   "dependencies": {
+    "@radix-ui/react-avatar": "^1.0.0",
     "@radix-ui/react-dialog": "^1.0.0",
     "@radix-ui/react-popover": "1.0.0",
     "@radix-ui/react-slot": "^1.0.0",

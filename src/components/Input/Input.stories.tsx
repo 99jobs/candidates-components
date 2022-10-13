@@ -1,13 +1,11 @@
 import { expect } from '@storybook/jest'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { userEvent, within } from '@storybook/testing-library'
-
 import { useForm } from 'react-hook-form'
 import { MdOutlineVisibility, MdPerson, MdVisibility } from 'react-icons/md'
 import isEmail from 'validator/es/lib/isEmail'
 import isStrongPassword from 'validator/es/lib/isStrongPassword'
 import { Input } from '.'
-
 import { Button } from '../Button'
 
 export default {

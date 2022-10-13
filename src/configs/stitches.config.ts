@@ -27,6 +27,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
         sm: '6px',
         md: '8px',
         lg: '10px',
+        xlg: '16px',
       },
       shadows: {},
       zIndices: {},

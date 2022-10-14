@@ -1,22 +1,16 @@
 import { ComponentProps } from '@stitches/react'
-import { Container, StyledAvatar, StyledFallback, StyledImage } from './style'
+import React from 'react'
+import { StyledAvatar, StyledAvatarFallback, StyledAvatarImage } from './style'
 
-export interface AvatarProps extends ComponentProps<typeof StyledAvatar> {
-  /* Iniciais do user */
-  label?: string
-
-  /* link da imagem */
-  src?: string
-
-  /* alt */
+export interface AvatarOwnProps extends ComponentProps<typeof StyledAvatar> {
   alt?: string
+  src?: string
+  fallback?: React.ReactNode
 }
 
-export const Avatar = ({ label, src, alt, ...props }: AvatarProps) => (
-  <Container>
-    <StyledAvatar {...props}>
-      <StyledImage src={src} alt={alt} />
-      <StyledFallback>{label}</StyledFallback>
-    </StyledAvatar>
-  </Container>
+export const Avatar = ({ alt, src, fallback, size, variant, shape, ...props }: AvatarOwnProps) => (
+  <StyledAvatar {...props} size={size} variant={variant} shape={shape}>
+    <StyledAvatarImage alt={alt} src={src} />
+    <StyledAvatarFallback size={size}>{fallback}</StyledAvatarFallback>
+  </StyledAvatar>
 )

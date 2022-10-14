@@ -23,3 +23,15 @@ jobs:
           FOLDER: docs # The folder that the build-storybook script generates files.
           CLEAN: true # Automatically remove deleted files from the deploy branch
           TARGET_FOLDER: docs/${{ github.event.pull_request.head.ref }} # The folder that we serve our Storybook files from
+
+  comment_a_PR_with_storybook_deployed_url:
+    runs-on: ubuntu-latest
+    name: Output Storybook deployed URL
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: Deploy feito em https://99jobs.github.io/candidates-components/${{ github.event.pull_request.head.ref }}

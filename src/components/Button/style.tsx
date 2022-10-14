@@ -13,7 +13,7 @@ export const StyledButton = styled('button', {
   alignItems: 'center',
   justifyContent: 'center',
   paddingX: 22,
-  gap: '$md1',
+  gap: 14,
 
   '@md': {
     width: 'auto',

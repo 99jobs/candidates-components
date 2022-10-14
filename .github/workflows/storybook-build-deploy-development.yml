@@ -25,6 +25,7 @@ jobs:
           TARGET_FOLDER: docs/${{ github.event.pull_request.head.ref }} # The folder that we serve our Storybook files from
 
   comment_a_PR_with_storybook_deployed_url:
+    needs: build_and_deploy_storybook_development
     runs-on: ubuntu-latest
     name: Output Storybook deployed URL
     steps:

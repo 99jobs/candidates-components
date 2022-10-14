@@ -54,3 +54,13 @@ jobs:
         uses: thollander/actions-comment-pull-request@v1
         with:
           message: Deploy feito em https://99jobs.github.io/candidates-components/${{ github.event.pull_request.head.ref }}
+
+  remove_storybook_deployed_after_merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Removing unnecessary files
+        run: |
+          git checkout gh-pages
+          cd docs
+          ls -la

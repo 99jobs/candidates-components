@@ -7,12 +7,13 @@ export const StyledButton = styled('button', {
   fontSize: 14,
   fontWeight: 700,
   cursor: 'pointer',
-  transition: 'background-color 0.1s ease-in-out, color 0.1s ease-in-out',
+  transition:
+    'background-color 0.1s ease-in-out, border-color 0.1s ease-in-out, color 0.1s ease-in-out',
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
   paddingX: 22,
-  gap: '$md1',
+  gap: 14,
 
   '@md': {
     width: 'auto',
@@ -47,10 +48,10 @@ export const StyledButton = styled('button', {
       ghost: {
         backgroundColor: 'transparent',
         color: '$bluePrimary',
+        border: '1px solid transparent',
 
         '&:hover': {
-          backgroundColor: '$bluePrimaryDark',
-          color: '$onBluePrimaryDark',
+          borderColor: '$bluePrimary',
         },
       },
     },

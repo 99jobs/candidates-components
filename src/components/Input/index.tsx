@@ -21,10 +21,6 @@ export interface InputProps extends ComponentProps<typeof StyledInputField> {
    */
   label: string
   /**
-   * O placeholder do input
-   */
-  placeholder?: string
-  /**
    * O ícone de botão que fica do lado direito do input
    */
   sufixIconButton?: ReactNode
@@ -46,21 +42,23 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       label,
-      placeholder,
       sufixIconButton,
       errorText,
       helperText,
       showAndHidePasswordButton = false,
+      type,
+      onChange,
       ...props
     },
     ref
   ) => {
     const id = useId()
     const [isActive, setIsActive] = useState(false)
-    const [inputType, setInputType] = useState(props.type)
+    const [inputType, setInputType] = useState(type)
 
     const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
       setIsActive(e.target.value !== '')
+      onChange?.(e)
     }
 
     const handleInputType = () => {
@@ -72,11 +70,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         data-is-active={isActive}
         data-has-icon={sufixIconButton !== undefined || showAndHidePasswordButton}
         data-has-error={errorText !== undefined}
-        onChange={handleInput}
       >
         <StyledInputLabel htmlFor={id}>{label}</StyledInputLabel>
 
-        <StyledInputField id={id} placeholder={placeholder} ref={ref} {...props} type={inputType} />
+        <StyledInputField id={id} type={inputType} onChange={handleInput} ref={ref} {...props} />
 
         {showAndHidePasswordButton ? (
           <Button

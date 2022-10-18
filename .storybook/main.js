@@ -26,7 +26,9 @@ module.exports = {
       shouldRemoveUndefinedFromOptional: true,
       propFilter: (prop) => {
         return prop.parent
-          ? /@radix-ui/.test(prop.parent.fileName) || !/node_modules/.test(prop.parent.fileName)
+          ? /@radix-ui/.test(prop.parent.fileName) ||
+              /downshift/.test(prop.parent.fileName) ||
+              !/node_modules/.test(prop.parent.fileName)
           : true
       },
     },

@@ -5,6 +5,7 @@ export const StyledInputLabel = styled('label', {
   position: 'absolute',
   top: 18,
   left: 8,
+  zIndex: -1,
   fontWeight: 400,
   fontSize: '$body',
   color: '$gray',
@@ -18,6 +19,7 @@ export const StyledInputField = styled('input', {
   outline: 'none',
   transition: 'border-color 0.1s linear',
   borderBottom: '1px solid $grayLight',
+  backgroundColor: 'transparent',
 
   '&::placeholder': {
     opacity: 0,

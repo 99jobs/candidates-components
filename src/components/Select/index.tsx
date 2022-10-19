@@ -1,6 +1,9 @@
 import Downshift, { type ControllerStateAndHelpers } from 'downshift'
 import { useState, type ComponentProps } from 'react'
+import { MdSearch } from 'react-icons/md'
+import { Button } from '../Button'
 import { Input } from '../Input'
+import { StyledSelectContainer } from './style'
 
 export interface SelectProps<T> extends ComponentProps<typeof Downshift<T>> {
   /**
@@ -18,9 +21,13 @@ export const Select = <T extends unknown>({ items, itemToString, ...props }: Sel
         setSelecteds((prev) => [...prev, selectedItem])
       }
 
-      state.setState({ inputValue: '' })
-      state.clearSelection()
+      // state.setState({ inputValue: '' })
+      // state.clearSelection()
     }
+  }
+
+  const removeSelectedByIndex = (indexToRemove: number) => {
+    setSelecteds((prev) => prev.filter((value, i) => i !== indexToRemove))
   }
 
   return (
@@ -30,18 +37,30 @@ export const Select = <T extends unknown>({ items, itemToString, ...props }: Sel
           getInputProps,
           getItemProps,
           getMenuProps,
-          isOpen,
           getRootProps,
-          highlightedIndex,
-          selectedItem,
+          openMenu,
+          closeMenu,
+          isOpen,
         }) => (
-          <div>
-            <div
-              style={{ display: 'inline-block' }}
-              {...getRootProps(undefined, { suppressRefError: true })}
-            >
-              <Input {...getInputProps()} label="Buscar" />
+          <StyledSelectContainer
+            {...getRootProps(undefined, { suppressRefError: true })}
+            data-has-selected={selecteds.length > 0}
+          >
+            <div>
+              {selecteds.map((x, i) => (
+                <button key={i} type="button" onClick={() => removeSelectedByIndex(i)}>
+                  {itemToString?.(x)}
+                </button>
+              ))}
             </div>
+            <Input
+              {...getInputProps()}
+              label=""
+              placeholder="Selecione"
+              onFocus={() => openMenu()}
+              onBlur={() => closeMenu()}
+              sufixIconButton={<Button prefixIcon={<MdSearch />} />}
+            />
 
             <ul {...getMenuProps()}>
               {isOpen
@@ -52,10 +71,6 @@ export const Select = <T extends unknown>({ items, itemToString, ...props }: Sel
                         key: index,
                         index,
                         item,
-                        style: {
-                          backgroundColor: highlightedIndex === index ? 'lightgray' : 'white',
-                          fontWeight: selectedItem === item ? 'bold' : 'normal',
-                        },
                       })}
                     >
                       {itemToString?.(item)}
@@ -63,7 +78,7 @@ export const Select = <T extends unknown>({ items, itemToString, ...props }: Sel
                   ))
                 : null}
             </ul>
-          </div>
+          </StyledSelectContainer>
         )}
       </Downshift>
     </>

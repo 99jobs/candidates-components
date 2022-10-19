@@ -17,7 +17,6 @@ export const StyledInputField = styled('input', {
   height: 44,
   padding: '14px 8px 0 8px',
   outline: 'none',
-  transition: 'border-color 0.1s linear',
   borderBottom: '1px solid $grayLight',
   backgroundColor: 'transparent',
 

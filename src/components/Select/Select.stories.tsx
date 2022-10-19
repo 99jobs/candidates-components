@@ -14,7 +14,8 @@ Default.args = {
     { id: 1, label: 'João', value: 'joao' },
     { id: 2, label: 'Laís', value: 'lais' },
     { id: 3, label: 'Lucy', value: 'lucy' },
-    { id: 4, label: 'Zuck', value: 'zick' },
+    { id: 4, label: 'Zuck', value: 'zuck' },
+    { id: 5, label: 'Suzy', value: 'suzy' },
   ],
   itemToString: (item: any) => (item ? item.label : ''),
 }

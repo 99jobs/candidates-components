@@ -71,9 +71,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         data-has-icon={sufixIconButton !== undefined || showAndHidePasswordButton}
         data-has-error={errorText !== undefined}
       >
-        <StyledInputLabel htmlFor={id}>{label}</StyledInputLabel>
+        <StyledInputLabel
+          htmlFor={id}
+          {...(props['aria-labelledby'] ? { id: props['aria-labelledby'] } : {})}
+        >
+          {label}
+        </StyledInputLabel>
 
-        <StyledInputField id={id} type={inputType} onChange={handleInput} ref={ref} {...props} />
+        <StyledInputField ref={ref} {...props} id={id} type={inputType} onChange={handleInput} />
 
         {showAndHidePasswordButton ? (
           <Button

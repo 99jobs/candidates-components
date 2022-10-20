@@ -9,7 +9,7 @@ import { Input } from '.'
 import { Button } from '../Button'
 
 export default {
-  title: 'Components/Input',
+  title: 'Components/Form/Input',
   component: Input,
   argTypes: {
     sufixIconButton: {

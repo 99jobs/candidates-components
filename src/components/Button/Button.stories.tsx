@@ -3,7 +3,7 @@ import { MdOutlineVisibility, MdPerson, MdPersonOutline, MdVisibility } from 're
 import { Button } from './index'
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/Form/Button',
   component: Button,
   argTypes: {
     prefixIcon: {

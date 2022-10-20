@@ -2,13 +2,38 @@ import { styled } from '../../configs/stitches.config'
 import { StyledButton } from '../Button/style'
 import { StyledInputField, StyledInputLabel, StyledInputWrapper } from '../Input/style'
 
+export const StyledSelectTagsContainer = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: 6,
+  padding: '6px 8px',
+  maxWidth: '100%',
+  paddingRight: 40,
+  position: 'absolute',
+  button: {
+    position: 'relative',
+    zIndex: 1,
+  },
+})
+
 export const StyledSelectContainer = styled('div', {
   position: 'relative',
 
+  '&[data-has-selected="true"]': {
+    [`& ${StyledInputWrapper}`]: {
+      [`& ${StyledInputField}`]: {
+        '&::placeholder': {
+          opacity: 0,
+        },
+      },
+    },
+  },
+
   [`& ${StyledInputWrapper}`]: {
     [`& ${StyledInputField}`]: {
-      border: '1px solid #ABB3BF',
-      borderRadius: 6,
+      border: '1px solid $grayLight',
+      borderRadius: '$sm',
       paddingY: 0,
       '&::placeholder': {
         opacity: 1,
@@ -59,13 +84,13 @@ export const StyledSelectContainer = styled('div', {
     listStyle: 'none',
     maxHeight: 150,
     overflow: 'auto',
-    borderRadius: 6,
+    borderRadius: '$sm',
 
     li: {
-      padding: '15px 12px  10px 12px',
-      borderBottom: '1px solid #ABB3BF',
-      fontSize: 14,
-      color: '#232222',
+      padding: '15px 12px 10px 12px',
+      borderBottom: '1px solid $grayLight',
+      fontSize: '$body',
+      color: '$grayDark',
 
       '&:last-of-type': {
         borderBottom: 'none',
@@ -74,14 +99,8 @@ export const StyledSelectContainer = styled('div', {
       '&[aria-selected="true"]': {
         fontWeight: 600,
         backgroundColor: '$bluePrimary',
-        color: '#fff',
+        color: '$onBluePrimary',
       },
     },
   },
-})
-
-export const StyledSelectTagsContainer = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
-  gap: 6,
 })

@@ -15,7 +15,7 @@ export const colors = {
   onYellowSystem: '#FFFFFF',
 
   yellowSystemDark: '#FFC100',
-  onYellowSystemDark: '#FFFFFF',
+  onYellowSystemDark: '#232222',
 
   redSystemLight: '#FF6464',
   onRedSystemLight: '#4D5056',
@@ -30,7 +30,7 @@ export const colors = {
   onGreenSystemLight: '#4D5056',
 
   greenSystem: '#BEE52E',
-  onGreenSystem: '#FFFFFF',
+  onGreenSystem: '#232222',
 
   greenSystemDark: '#A8D900',
   onGreenSystemDark: '#FFFFFF',
@@ -55,6 +55,9 @@ export const colors = {
 
   backgroundGrayLight: '#F4F4F4',
   onBackgroundGrayLight: '#525252',
+
+  graySoft: '#DFE1E2',
+  onGraySoft: '#525252',
 
   grayLight: '#ABB3BF',
   onGrayLight: '#FFFFFF',

@@ -79,3 +79,9 @@ export const StyledSelectContainer = styled('div', {
     },
   },
 })
+
+export const StyledSelectTagsContainer = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  gap: 6,
+})

@@ -3,26 +3,38 @@ import { useState, type ComponentProps } from 'react'
 import { MdSearch } from 'react-icons/md'
 import { Button } from '../Button'
 import { Input } from '../Input'
-import { StyledSelectContainer } from './style'
+import { StyledSelectContainer, StyledSelectTagsContainer } from './style'
 
 export interface SelectProps<T> extends ComponentProps<typeof Downshift<T>> {
   /**
    * Os items que serão exibidos no select
    */
   items: T[]
+  /**
+   * O select é de uma única opção ou várias opções
+   */
+  mode: 'single' | 'multiple'
 }
 
-export const Select = <T extends unknown>({ items, itemToString, ...props }: SelectProps<T>) => {
+export const Select = <T extends unknown>({
+  items,
+  mode = 'single',
+  itemToString,
+  ...props
+}: SelectProps<T>) => {
   const [selecteds, setSelecteds] = useState<T[]>([])
 
   const handleOnChange = (selectedItem: T | null, state: ControllerStateAndHelpers<T>) => {
     if (selectedItem) {
-      if (!selecteds.includes(selectedItem)) {
-        setSelecteds((prev) => [...prev, selectedItem])
+      if (mode === 'single') {
+        setSelecteds([selectedItem])
+      } else if (mode === 'multiple') {
+        if (!selecteds.includes(selectedItem)) {
+          setSelecteds((prev) => [...prev, selectedItem])
+          state.clearSelection()
+          state.setState({ inputValue: '' })
+        }
       }
-
-      // state.setState({ inputValue: '' })
-      // state.clearSelection()
     }
   }
 
@@ -46,13 +58,16 @@ export const Select = <T extends unknown>({ items, itemToString, ...props }: Sel
             {...getRootProps(undefined, { suppressRefError: true })}
             data-has-selected={selecteds.length > 0}
           >
-            <div>
-              {selecteds.map((x, i) => (
-                <button key={i} type="button" onClick={() => removeSelectedByIndex(i)}>
-                  {itemToString?.(x)}
-                </button>
-              ))}
-            </div>
+            {mode === 'multiple' ? (
+              <StyledSelectTagsContainer>
+                {selecteds.map((item, index) => (
+                  <span key={index} onClick={() => removeSelectedByIndex(index)}>
+                    {itemToString?.(item)}
+                  </span>
+                ))}
+              </StyledSelectTagsContainer>
+            ) : null}
+
             <Input
               {...getInputProps()}
               label=""

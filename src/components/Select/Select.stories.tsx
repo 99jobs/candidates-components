@@ -18,4 +18,5 @@ Default.args = {
     { id: 5, label: 'Suzy', value: 'suzy' },
   ],
   itemToString: (item: any) => (item ? item.label : ''),
+  mode: 'multiple',
 }

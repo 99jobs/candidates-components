@@ -3,7 +3,6 @@ import * as AvatarPrimitive from '@radix-ui/react-avatar'
 import { styled } from '../../configs/stitches.config'
 
 export const Container = styled('div', {
-  // backgroundColor: '$grayDark',
   width: 'fit-content',
   display: 'flex',
   zIndex: 2,
@@ -55,12 +54,10 @@ export const StyledAvatarIcon = styled('div', {
 
 export const StyledInputLabel = styled('label', {
   position: 'absolute',
-  top: 70,
-  left: 40,
   fontWeight: 600,
   fontSize: '$small',
   color: '$gray',
-  margin: '28px 34px',
+  margin: '79px 65px',
   backgroundColor: '$backgroundGrayLight',
   padding: '10px 12px',
   borderRadius: 50,

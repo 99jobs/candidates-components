@@ -1,4 +1,5 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { useForm } from 'react-hook-form'
 import { Select } from '.'
 
 export default {
@@ -21,7 +22,8 @@ Default.args = {
   ],
   itemToString: (item: any) => (item ? item.label : ''),
   mode: 'single',
-  inputPlaceholder: 'País de origem',
+  label: '',
+  placeholder: 'País de origem',
 }
 
 export const Multiple = Template.bind({})
@@ -37,5 +39,41 @@ Multiple.args = {
   ],
   itemToString: (item: any) => (item ? item.label : ''),
   mode: 'multiple',
-  inputPlaceholder: 'Habilidades',
+  label: '',
+  placeholder: 'Habilidades',
+}
+
+export const ExampleWithRequiredValidation: ComponentStory<typeof Select> = () => {
+  const {
+    register,
+    formState: { errors },
+  } = useForm({
+    mode: 'onBlur',
+  })
+
+  return (
+    <>
+      <Select
+        label=""
+        items={[
+          { id: 1, label: 'HTML' },
+          { id: 2, label: 'CSS' },
+          { id: 3, label: 'Figma' },
+          { id: 4, label: 'Excel' },
+          { id: 5, label: 'Rails' },
+          { id: 6, label: 'Postgres' },
+          { id: 7, label: 'React' },
+        ]}
+        itemToString={(item: any) => (item ? item.label : '')}
+        mode="multiple"
+        {...register('password', {
+          required: {
+            value: true,
+            message: 'Senha é obrigatória',
+          },
+        })}
+        errorText={errors.password && errors.password.message?.toString()}
+      />
+    </>
+  )
 }

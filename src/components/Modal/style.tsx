@@ -7,45 +7,106 @@ const overlayShow = keyframes({
 })
 
 const contentShow = keyframes({
-  '0%': { opacity: 0, transform: 'translate(-50%, -48%) scale(.96)' },
-  '100%': { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' },
+  '0%': { opacity: 0, transform: 'translateY(20px)' },
+  '100%': { opacity: 1, transform: 'translateY(0)' },
 })
 
-export const StyledModalRoot = styled(Dialog.Root, {})
+export const StyledModalRoot = styled(Dialog.Root)
 
-export const StyledModalTrigger = styled(Dialog.Trigger, {})
+export const StyledModalTrigger = styled(Dialog.Trigger)
 
-export const StyledModalPortal = styled(Dialog.Portal, {})
-
-export const StyledModalOverlay = styled(Dialog.Overlay, {
-  backgroundColor: '$backgroundGrayLight',
-  position: 'fixed',
-  inset: 0,
-  '@media (prefers-reduced-motion: no-preference)': {
-    animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
-  },
-})
+export const StyledModalPortal = styled(Dialog.Portal)
 
 export const StyledModalContent = styled(Dialog.Content, {
-  backgroundColor: 'white',
-  borderRadius: 6,
-  boxShadow: 'hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px',
-  position: 'fixed',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '90vw',
-  maxWidth: '450px',
-  maxHeight: '85vh',
-  padding: 25,
+  width: '100%',
+  maxWidth: 420,
+  borderRadius: '$xlg',
+  backgroundColor: '$onGray',
+  display: 'flex',
+  flexDirection: 'column',
   '@media (prefers-reduced-motion: no-preference)': {
-    animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+    animation: `${contentShow} 150ms ease-in-out`,
   },
   '&:focus': { outline: 'none' },
 })
 
-export const StyledModalTitle = styled(Dialog.Title, {})
+export const StyledModalHeader = styled('header', {
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'space-between',
+  padding: '16px 18px 16px 24px',
+  background: 'inherit',
+  borderTopLeftRadius: 'inherit',
+  borderTopRightRadius: 'inherit',
+})
 
-export const StyledModalDescription = styled(Dialog.Description, {})
+export const StyledModalBody = styled('div', {
+  width: '100%',
+  paddingX: 24,
+  paddingBottom: 24,
+})
 
-export const StyledModalClose = styled(Dialog.Close, {})
+export const StyledModalFooter = styled('footer', {
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'flex-end',
+  gap: 12,
+  paddingX: 24,
+  paddingBottom: 24,
+})
+
+export const StyledModalTitle = styled(Dialog.Title, {
+  fontSize: '$h3',
+  color: '$bluePrimary',
+})
+
+export const StyledModalClose = styled(Dialog.Close, {
+  padding: 0,
+  background: 'transparent',
+  border: 0,
+  color: '$bluePrimary',
+  cursor: 'pointer',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+})
+
+export const StyledModalOverlay = styled(Dialog.Overlay, {
+  backgroundColor: 'rgba(77, 80, 86, 0.6)',
+  position: 'fixed',
+  inset: 0,
+  display: 'flex',
+  alignItems: 'flex-start',
+  justifyContent: 'center',
+  padding: 24,
+  '@media (prefers-reduced-motion: no-preference)': {
+    animation: `${overlayShow} 150ms ease-in-out`,
+  },
+
+  defaultVariants: {
+    scroll: 'inside',
+  },
+
+  variants: {
+    scroll: {
+      inside: {
+        alignItems: 'center',
+        [`& ${StyledModalContent}`]: {
+          maxHeight: 'calc(100vh - 24px - 24px)',
+          [`& ${StyledModalBody}`]: {
+            maxHeight: '100%',
+            overflowY: 'auto',
+            paddingBottom: 0,
+          },
+          [`& ${StyledModalFooter}`]: {
+            paddingTop: 16,
+          },
+        },
+      },
+      body: {
+        overflowY: 'auto',
+        [`& ${StyledModalContent}`]: {},
+      },
+    },
+  },
+})

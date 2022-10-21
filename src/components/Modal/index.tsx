@@ -1,8 +1,10 @@
 import { ComponentProps } from '@stitches/react'
 import {
+  StyledModalBody,
   StyledModalClose,
   StyledModalContent,
-  StyledModalDescription,
+  StyledModalFooter,
+  StyledModalHeader,
   StyledModalOverlay,
   StyledModalPortal,
   StyledModalRoot,
@@ -10,27 +12,44 @@ import {
 } from './style'
 
 export interface ModalProps extends ComponentProps<typeof StyledModalRoot> {
-  closeOnClickOutside: boolean
+  /**
+   * Controla se a rolagem acontecerá internamente no modal**(inside)** ou acontecerá externamente**(body)**.
+   * Quando é internamente, o header e o footer do modal ficam fixos na tela, rolando apenas a body.
+   */
+  scroll?: 'inside' | 'body'
+  /**
+   * Determina se o modal deve fechar quando pressionar a tecla ESC
+   */
+  closeOnEsc: boolean
+  /**
+   * Determina se o modal deve fechar quando clicar no overlay
+   */
+  closeOnOverlayClick: boolean
 }
 
 export const Modal = ({
+  scroll = 'inside',
+  closeOnEsc = true,
+  closeOnOverlayClick = true,
   children,
-  open,
-  onOpenChange,
-  closeOnClickOutside = false,
   ...props
 }: ModalProps) => (
-  <StyledModalRoot {...props} open={open} onOpenChange={onOpenChange}>
+  <StyledModalRoot {...props}>
     <StyledModalPortal>
-      <StyledModalOverlay />
-
-      <StyledModalContent onPointerDownOutside={(e) => !closeOnClickOutside && e.preventDefault()}>
-        <StyledModalTitle />
-        <StyledModalDescription />
-        <StyledModalClose>x</StyledModalClose>
-
-        {children}
-      </StyledModalContent>
+      <StyledModalOverlay scroll={scroll}>
+        <StyledModalContent
+          onEscapeKeyDown={(e) => !closeOnEsc && e.preventDefault()}
+          onPointerDownOutside={(e) => !closeOnOverlayClick && e.preventDefault()}
+        >
+          {children}
+        </StyledModalContent>
+      </StyledModalOverlay>
     </StyledModalPortal>
   </StyledModalRoot>
 )
+
+export const ModalHeader = StyledModalHeader
+export const ModalTitle = StyledModalTitle
+export const ModalClose = StyledModalClose
+export const ModalBody = StyledModalBody
+export const ModalFooter = StyledModalFooter

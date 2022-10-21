@@ -1,28 +1,27 @@
-import { ComponentProps } from '@stitches/react'
-import { ReactElement } from 'react'
+import { type ComponentProps, type ReactNode } from 'react'
 import { StyledButton } from './style'
 
 export interface ButtonProps extends ComponentProps<typeof StyledButton> {
   /**
-   * Label do botão
+   * O texto do botão
    */
   label?: string
   /**
-   * Label do botão
+   * A cor do botão
    */
   color?: 'default' | 'outline' | 'ghost'
   /**
-   * Ícone do botão do lado esquerdo
+   * O ícone que fica ao lado esquerdo do texto
    */
-  prefixIcon?: ReactElement
+  prefixIcon?: ReactNode
   /**
-   * Ícone do botão do lado direito
+   * O ícone que fica ao lado direito do texto
    */
-  sufixIcon?: ReactElement
+  sufixIcon?: ReactNode
 }
 
 export const Button = ({ label, color, prefixIcon, sufixIcon, ...props }: ButtonProps) => (
-  <StyledButton color={color} aria-label={props['aria-label']} {...props}>
+  <StyledButton color={color} {...props}>
     <>
       {prefixIcon}
       {label}

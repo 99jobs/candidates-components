@@ -99,7 +99,7 @@ export const Select = forwardRef(
             {/* Controle do input */}
             <input
               ref={ref}
-              defaultValue={selecteds}
+              defaultValue={selecteds.length === 0 ? undefined : JSON.stringify(selecteds)}
               style={{
                 width: 0,
                 height: 0,

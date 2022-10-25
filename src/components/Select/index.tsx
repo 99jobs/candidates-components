@@ -1,6 +1,7 @@
-import Downshift, { type ControllerStateAndHelpers } from 'downshift'
-import { forwardRef, Ref, useEffect, useRef, useState, type ComponentProps } from 'react'
+import Downshift, { ControllerStateAndHelpers } from 'downshift'
+import { ComponentProps, forwardRef, Ref, useEffect, useRef, useState } from 'react'
 import { MdExpandMore, MdSearch } from 'react-icons/md'
+import { compareString } from '../../utils/compareString'
 import { Button } from '../Button'
 import { Input } from '../Input'
 import { Tag } from '../Tag'
@@ -19,39 +20,32 @@ export interface SelectProps<T>
   mode: 'single' | 'multiple'
 }
 
-// export const Select = <T extends unknown>({
-//   items,
-//   mode = 'single',
-//   inputPlaceholder,
-//   itemToString,
-//   ...props
-// }: SelectProps<T>) => {
 export const Select = forwardRef(
   <T extends unknown>(
     { items, mode, itemToString, ...props }: SelectProps<T>,
     ref: Ref<HTMLInputElement>
   ) => {
-    const containerref = useRef(null)
-    const [height, setHeight] = useState(0)
     const [selecteds, setSelecteds] = useState<T[]>([])
+    const tagsContainerRef = useRef(null)
+    const [tagContainerHeight, setTagContainerHeight] = useState(0)
     const [term, setTerm] = useState('')
 
     // No mode multiple estamos adicionaado várias tags dentro do box do input. Para a altura dele aumentar conforme as tags vão sendo adicionadas, criamos uma função para calcular o tamanho do container das tags
     const calculateInputHeight = () => {
-      if (containerref.current) {
-        const { clientHeight } = containerref.current
+      if (tagsContainerRef.current) {
+        const { clientHeight } = tagsContainerRef.current
 
         if (clientHeight) {
-          setHeight(clientHeight)
+          setTagContainerHeight(clientHeight)
         }
       }
     }
 
     useEffect(() => {
       calculateInputHeight()
-    }, [containerref])
+    }, [tagsContainerRef])
 
-    const handleOnChange = (selectedItem: T | null, state: ControllerStateAndHelpers<T>) => {
+    const handleDropdownChange = (selectedItem: T | null, state: ControllerStateAndHelpers<T>) => {
       if (selectedItem) {
         if (mode === 'single') {
           setSelecteds([selectedItem])
@@ -74,62 +68,81 @@ export const Select = forwardRef(
     }
 
     return (
-      <>
-        <Downshift itemToString={itemToString} onChange={handleOnChange}>
-          {({
-            getInputProps,
-            getItemProps,
-            getMenuProps,
-            getRootProps,
-            openMenu,
-            closeMenu,
-            isOpen,
-          }) => (
-            <StyledSelectContainer
-              {...getRootProps(undefined, { suppressRefError: true })}
-              data-has-selected={selecteds.length > 0}
-            >
-              {mode === 'multiple' ? (
-                <StyledSelectTagsContainer ref={containerref}>
-                  {selecteds.map((item, index) => (
-                    <Tag
-                      key={index}
-                      label={itemToString?.(item) || ''}
-                      onClick={() => removeSelectedByIndex(index)}
-                      hasRemoveIcon
-                    />
-                  ))}
-                </StyledSelectTagsContainer>
-              ) : null}
+      <Downshift itemToString={itemToString} onChange={handleDropdownChange}>
+        {({
+          getInputProps,
+          getItemProps,
+          getMenuProps,
+          getRootProps,
+          openMenu,
+          closeMenu,
+          isOpen,
+        }) => (
+          <StyledSelectContainer
+            {...getRootProps(undefined, { suppressRefError: true })}
+            data-has-selected={selecteds.length > 0}
+          >
+            {mode === 'multiple' ? (
+              <StyledSelectTagsContainer ref={tagsContainerRef} role="listbox">
+                {selecteds.map((item, index) => (
+                  <Tag
+                    key={index}
+                    label={itemToString?.(item) || ''}
+                    onClick={() => removeSelectedByIndex(index)}
+                    hasRemoveIcon
+                    role="listitem"
+                  />
+                ))}
+              </StyledSelectTagsContainer>
+            ) : null}
 
-              <Input
-                {...getInputProps({
-                  value: term ?? selecteds.map((item) => itemToString?.(item) || ''),
-                })}
-                aria-label={'inputPlaceholder'}
-                placeholder={'inputPlaceholder'}
-                onFocus={() => openMenu()}
-                onBlur={() => closeMenu()}
-                {...props}
-                onChange={(e) => setTerm(e.target.value)}
-                sufixIconButton={
-                  mode === 'single' ? (
-                    <Button
-                      prefixIcon={<MdExpandMore />}
-                      aria-label="Abrir opções"
-                      onClick={() => openMenu()}
-                    />
-                  ) : (
-                    <Button prefixIcon={<MdSearch />} aria-label="Abrir opções" />
-                  )
-                }
-                style={{ minHeight: height }}
-                ref={ref}
-              />
+            {/* Controle do input */}
+            <input
+              ref={ref}
+              defaultValue={selecteds}
+              style={{
+                width: 0,
+                height: 0,
+                opacity: 0,
+                overflow: 'hidden',
+                position: 'absolute',
+                zIndex: '-999999',
+              }}
+            />
 
-              {isOpen ? (
-                <ul {...getMenuProps()} aria-label="Lista de opções">
-                  {items.map((item, index) => (
+            {/* UI do input */}
+            <Input
+              {...getInputProps({
+                ...props,
+                onFocus: (e) => {
+                  openMenu()
+                  props.onFocus?.(e)
+                },
+                onBlur: (e) => {
+                  closeMenu()
+                  props.onBlur?.(e)
+                },
+                onChange: (e) => {
+                  setTerm(e.target.value)
+                  props.onChange?.(e)
+                },
+              })}
+              autoComplete="off"
+              style={{ minHeight: tagContainerHeight }}
+              sufixIconButton={
+                <Button
+                  prefixIcon={mode === 'single' ? <MdExpandMore /> : <MdSearch />}
+                  aria-label="Abrir opções"
+                  onClick={() => openMenu()}
+                />
+              }
+            />
+
+            {isOpen ? (
+              <ul {...getMenuProps()} aria-label="Lista de opções">
+                {items
+                  .filter((item) => compareString(itemToString?.(item), term))
+                  .map((item, index) => (
                     <li
                       key={index}
                       {...getItemProps({
@@ -141,12 +154,11 @@ export const Select = forwardRef(
                       {itemToString?.(item)}
                     </li>
                   ))}
-                </ul>
-              ) : null}
-            </StyledSelectContainer>
-          )}
-        </Downshift>
-      </>
+              </ul>
+            ) : null}
+          </StyledSelectContainer>
+        )}
+      </Downshift>
     )
   }
 )

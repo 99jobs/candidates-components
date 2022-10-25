@@ -31,6 +31,12 @@ export const StyledSelectContainer = styled('div', {
   },
 
   [`& ${StyledInputWrapper}`]: {
+    '&[data-has-error="true"]': {
+      '& + ul': {
+        borderColor: '$redSystemDark',
+      },
+    },
+
     [`& ${StyledInputField}`]: {
       border: '1px solid $grayLight',
       borderRadius: '$sm',
@@ -85,6 +91,7 @@ export const StyledSelectContainer = styled('div', {
     maxHeight: 150,
     overflow: 'auto',
     borderRadius: '$sm',
+    backgroundColor: '#fff',
 
     li: {
       padding: '15px 12px 10px 12px',

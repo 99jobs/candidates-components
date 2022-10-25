@@ -31,6 +31,8 @@ export const StyledInputHelperText = styled('span', {
   fontSize: '$small',
   color: '$gray',
   paddingLeft: 8,
+  position: 'absolute',
+  top: 'calc(100% + 8px)',
 })
 
 export const StyledInputWrapper = styled('div', {

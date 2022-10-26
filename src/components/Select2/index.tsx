@@ -1,26 +1,30 @@
-import { forwardRef } from 'react'
-import { Props } from 'react-select'
+import { ComponentProps, forwardRef } from 'react'
+import { Input } from '../Input'
 import { StyledReactSelect } from './style'
 
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-]
+export interface SelectProps<T> extends Omit<ComponentProps<typeof Input>, 'onChange'> {
+  items: T[]
+}
 
-const Inputx = ({ ...props }) => <input {...props} />
+export const Select = forwardRef(
+  <T extends unknown>({ items, ...props }: SelectProps<T>, ref: any) => (
+    <StyledReactSelect
+      ref={ref}
+      {...props}
+      options={items}
+      isClearable
+      isSearchable
+      isMulti
+      components={{
+        Input: ({ ...innerProps }) => <Input {...props} {...innerProps} />,
+        DropdownIndicator: () => <></>,
+        ClearIndicator: () => <></>,
+        Placeholder: () => <></>,
+      }}
+      className={`custom-select ${props.errorText && 'has-error'}`}
+      classNamePrefix={`custom-select`}
+    />
+  )
+)
 
-export const Select2 = forwardRef<any, Props>((props, ref) => (
-  <StyledReactSelect
-    ref={ref}
-    {...props}
-    options={options}
-    isClearable
-    isSearchable
-    components={{ Input: Inputx }}
-    className="teste"
-    classNamePrefix="teste"
-  />
-))
-
-Select2.displayName = 'Select2'
+Select.displayName = 'Select'

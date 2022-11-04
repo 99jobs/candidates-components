@@ -4,7 +4,7 @@ import { within } from '@testing-library/react'
 import { Avatar } from './index'
 
 export default {
-  title: 'Components/Avatar',
+  title: 'Components/Data/Avatar',
   component: Avatar,
   argTypes: {
     label: { control: false },

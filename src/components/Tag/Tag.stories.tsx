@@ -20,7 +20,11 @@ WithRemoveIcon.args = {
   children: (
     <>
       <span>Design centrado no usuário</span>
-      <button type="button" onClick={() => alert('Alguma ação')}>
+      <button
+        type="button"
+        aria-label="Remover opção Design centrado no usuário"
+        onClick={() => alert('Alguma ação')}
+      >
         <MdClose />
       </button>
     </>

@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { useEffect, useState } from 'react'
 import { MdClose } from 'react-icons/md'
 import { Modal, ModalBody, ModalClose, ModalFooter, ModalHeader, ModalTitle } from '.'

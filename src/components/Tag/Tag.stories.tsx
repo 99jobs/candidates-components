@@ -1,4 +1,6 @@
+/* eslint-disable no-alert */
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { MdClose } from 'react-icons/md'
 import { Tag } from '.'
 
 export default {
@@ -10,14 +12,17 @@ const Template: ComponentStory<typeof Tag> = (args) => <Tag {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  label: 'Design centrado no usuário',
+  children: 'Design centrado no usuário',
 }
 
 export const WithRemoveIcon = Template.bind({})
 WithRemoveIcon.args = {
-  label: 'Design centrado no usuário',
-  hasRemoveIcon: true,
-  onClick: () => {
-    alert('Some action')
-  },
+  children: (
+    <>
+      <span>Design centrado no usuário</span>
+      <button type="button" onClick={() => alert('Alguma ação')}>
+        <MdClose />
+      </button>
+    </>
+  ),
 }

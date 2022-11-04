@@ -1,5 +1,7 @@
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { useForm } from 'react-hook-form'
+import { expect } from '@storybook/jest'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { userEvent, within } from '@storybook/testing-library'
+import { Controller, useForm } from 'react-hook-form'
 import { Select } from '.'
 
 export default {
@@ -7,103 +9,90 @@ export default {
   component: Select,
 } as ComponentMeta<typeof Select>
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />
+const Template: ComponentStory<typeof Select> = (args) => (
+  <div style={{ minWidth: 320 }}>
+    <Select {...args} />
+  </div>
+)
 
 export const Default = Template.bind({})
 Default.args = {
-  items: [
-    { id: 1, label: 'Afeganistão' },
-    { id: 2, label: 'África do Sul' },
-    { id: 3, label: 'Albânia' },
-    { id: 4, label: 'Brasil' },
-    { id: 5, label: 'Estados Unidos' },
-    { id: 6, label: 'França' },
-    { id: 7, label: 'Itália' },
+  options: [
+    { value: 1, label: 'Afeganistão' },
+    { value: 2, label: 'África do Sul' },
+    { value: 3, label: 'Albânia' },
+    { value: 4, label: 'Brasil' },
+    { value: 5, label: 'Estados Unidos' },
+    { value: 6, label: 'França' },
+    { value: 7, label: 'Itália' },
   ],
-  itemToString: (item: any) => (item ? item.label : ''),
-  mode: 'single',
-  label: '',
-  placeholder: 'País de origem',
+  isMulti: true,
+  placeholder: 'Selecione',
+  'aria-label': 'Selecione um país',
 }
 
-export const MultipleWithRequiredValidation: ComponentStory<typeof Select> = () => {
+export const ExampleWithRequiredValidation: ComponentStory<typeof Select> = () => {
   const {
-    register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm({
     mode: 'onBlur',
   })
 
-  const onSubmit = (data) => {
-    console.log('errors', errors)
+  const onSubmit = (data: any) => {
+    // eslint-disable-next-line no-console
     console.log('data', data)
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Select
-        items={[
-          { id: 1, label: 'Afeganistão' },
-          { id: 2, label: 'África do Sul' },
-          { id: 3, label: 'Albânia' },
-          { id: 4, label: 'Brasil' },
-          { id: 5, label: 'Estados Unidos' },
-          { id: 6, label: 'França' },
-          { id: 7, label: 'Itália' },
-        ]}
-        itemToString={(item: any) => (item ? item.label : '')}
-        mode="multiple"
-        label=""
-        placeholder="País de origem"
-        {...register('country', {
+    <form onSubmit={handleSubmit(onSubmit)} style={{ minWidth: 320 }}>
+      <Controller
+        name="country"
+        control={control}
+        rules={{
           required: {
             value: true,
             message: 'País é obrigatório',
           },
-        })}
-        errorText={errors.country && errors.country.message?.toString()}
+        }}
+        render={({ field }) => (
+          <Select
+            {...field}
+            options={[
+              { value: 1, label: 'Afeganistão' },
+              { value: 2, label: 'África do Sul' },
+              { value: 3, label: 'Albânia' },
+              { value: 4, label: 'Brasil' },
+              { value: 5, label: 'Estados Unidos' },
+              { value: 6, label: 'França' },
+              { value: 7, label: 'Itália' },
+            ]}
+            errorText={errors.country && errors.country.message?.toString()}
+            placeholder="Selecione"
+            aria-label="Selecione um país"
+          />
+        )}
       />
-
-      <br />
-      <br />
-      <br />
-      <br />
-
-      <input type="submit" />
     </form>
   )
 }
 
-// MultipleWithRequiredValidation.play = async ({ canvasElement }) => {
-//   const canvas = within(canvasElement)
-//   const input = canvas.getByPlaceholderText('País de origem')
+ExampleWithRequiredValidation.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByLabelText('Selecione um país')
 
-//   // Valida campo vazio
-//   await new Promise((r) => setTimeout(r, 300))
-//   input.focus()
-//   input.blur()
-//   await new Promise((r) => setTimeout(r, 300))
-//   expect(canvas.queryByRole('alert')).toHaveTextContent('País é obrigatório')
+  // Valida e-mail vazio
+  await new Promise((r) => setTimeout(r, 300))
+  input.focus()
+  input.blur()
+  await new Promise((r) => setTimeout(r, 300))
+  expect(canvas.queryByRole('alert')).toHaveTextContent('País é obrigatório')
 
-//   // Valida se navegação por teclado funciona
-//   input.focus()
-//   await userEvent.type(input, '{arrowdown}')
-//   await userEvent.type(input, '{arrowdown}')
-//   expect(canvas.queryByText('África do Sul')).toHaveAttribute('aria-selected', 'true')
-
-//   // Valida se dando Enter valor é selecionado
-//   input.focus()
-//   await userEvent.type(input, '{arrowdown}')
-//   await userEvent.type(input, '{enter}')
-//   expect(canvas.queryByRole('listitem')).toHaveTextContent('Albânia')
-//   await userEvent.type(input, '{arrowdown}')
-//   await userEvent.type(input, '{arrowdown}')
-//   await userEvent.type(input, '{enter}')
-//   expect(canvas.queryAllByRole('listitem')[0]).toHaveTextContent('Albânia')
-//   expect(canvas.queryAllByRole('listitem')[1]).toHaveTextContent('África do Sul')
-
-//   // Apaga um dos valores selecionados
-//   await userEvent.click(canvas.queryAllByRole('listitem')[0])
-//   expect(canvas.queryAllByRole('listitem')[0]).toHaveTextContent('África do Sul')
-// }
+  // Valida se ao selecionar uma opção o alert é removido
+  userEvent.clear(input)
+  await userEvent.type(input, 'Bra{enter}', { delay: 100 })
+  input.blur()
+  await new Promise((r) => setTimeout(r, 300))
+  expect(canvas.queryByRole('alert')).not.toBeInTheDocument()
+}

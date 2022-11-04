@@ -1,6 +1,6 @@
 import { styled } from '../../configs/stitches.config'
 
-export const StyledTagContainer = styled('button', {
+export const StyledTagContainer = styled('div', {
   backgroundColor: '$bluePrimary',
   borderRadius: '$md',
   padding: 8,
@@ -11,8 +11,16 @@ export const StyledTagContainer = styled('button', {
   fontWeight: 600,
   fontSize: '$small',
 
-  '&[data-has-remove-icon="false"]': {
-    paddingX: 8,
-    paddingY: 4,
+  span: {
+    fontSize: 'inherit',
+  },
+
+  button: {
+    backgroundColor: 'inherit',
+    border: 'none',
+    padding: 0,
+    display: 'inline-flex',
+    color: 'inherit',
+    cursor: 'pointer',
   },
 })

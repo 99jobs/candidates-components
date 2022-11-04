@@ -27,7 +27,7 @@ module.exports = {
       propFilter: (prop) => {
         return prop.parent
           ? /@radix-ui/.test(prop.parent.fileName) ||
-              /downshift/.test(prop.parent.fileName) ||
+              /react-select/.test(prop.parent.fileName) ||
               !/node_modules/.test(prop.parent.fileName)
           : true
       },

@@ -46,12 +46,6 @@ export const StyledAvatarFallback = styled(AvatarPrimitive.Fallback, {
   backgroundPosition: ' bottom center',
 })
 
-export const StyledAvatarIcon = styled('div', {
-  position: 'absolute',
-  opacity: 0.16,
-  marginTop: 25,
-})
-
 export const StyledInputLabel = styled('label', {
   position: 'absolute',
   fontWeight: 600,
@@ -63,7 +57,7 @@ export const StyledInputLabel = styled('label', {
   borderRadius: 50,
   display: 'flex',
   alignItems: 'center',
-  gap: '$sm2',
+  gap: '8px',
 })
 
 export const StyledInputField = styled('input', {

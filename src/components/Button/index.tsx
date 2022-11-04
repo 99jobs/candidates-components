@@ -21,7 +21,7 @@ export interface ButtonProps extends ComponentProps<typeof StyledButton> {
 }
 
 export const Button = ({ label, color, prefixIcon, sufixIcon, ...props }: ButtonProps) => (
-  <StyledButton color={color} {...props}>
+  <StyledButton {...props} color={color}>
     <>
       {prefixIcon}
       {label}

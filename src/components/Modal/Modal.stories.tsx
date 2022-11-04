@@ -5,7 +5,7 @@ import { Modal, ModalBody, ModalClose, ModalFooter, ModalHeader, ModalTitle } fr
 import { Button } from '../Button'
 
 export default {
-  title: 'Components/Modal',
+  title: 'Components/Feedback/Modal',
   component: Modal,
   argTypes: {
     children: { control: false },

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { ComponentProps } from '@stitches/react'
+import { type ComponentProps } from '@stitches/react'
 import { type ChangeEvent } from 'react'
 import { MdOutlineCameraAlt } from 'react-icons/md'
 import {

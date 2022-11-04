@@ -1,5 +1,4 @@
 import * as AvatarPrimitive from '@radix-ui/react-avatar'
-
 import { styled } from '../../configs/stitches.config'
 
 export const Container = styled('div', {

@@ -1,6 +1,6 @@
 import { expect } from '@storybook/jest'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { within } from '@testing-library/react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { within } from '@storybook/testing-library'
 import { Avatar } from './index'
 
 export default {

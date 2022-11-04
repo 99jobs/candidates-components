@@ -5,6 +5,7 @@ export const StyledInputLabel = styled('label', {
   position: 'absolute',
   top: 18,
   left: 8,
+  zIndex: -1,
   fontWeight: 400,
   fontSize: '$body',
   color: '$gray',
@@ -16,8 +17,8 @@ export const StyledInputField = styled('input', {
   height: 44,
   padding: '14px 8px 0 8px',
   outline: 'none',
-  transition: 'border-color 0.1s linear',
   borderBottom: '1px solid $grayLight',
+  backgroundColor: 'transparent',
 
   '&::placeholder': {
     opacity: 0,
@@ -30,6 +31,8 @@ export const StyledInputHelperText = styled('span', {
   fontSize: '$small',
   color: '$gray',
   paddingLeft: 8,
+  position: 'absolute',
+  top: 'calc(100% + 8px)',
 })
 
 export const StyledInputWrapper = styled('div', {

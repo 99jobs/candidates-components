@@ -1,5 +1,5 @@
 import { expect } from '@storybook/jest'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { userEvent, within } from '@storybook/testing-library'
 import { Controller, useForm } from 'react-hook-form'
 import { Select } from '.'

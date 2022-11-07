@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react'
+import { type ComponentProps } from 'react'
 import { StyledTagContainer } from './style'
 
 export interface TagProps extends ComponentProps<typeof StyledTagContainer> {}

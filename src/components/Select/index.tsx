@@ -1,4 +1,4 @@
-import { ComponentProps, forwardRef } from 'react'
+import { forwardRef, type ComponentProps } from 'react'
 import { MdClose, MdExpandMore } from 'react-icons/md'
 import { Input } from '../Input'
 import { StyledInputHelperText } from '../Input/style'

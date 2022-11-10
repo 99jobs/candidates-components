@@ -13,7 +13,6 @@ export const StyledRadioIndicatorWrapper = styled('div', StyledCheckboxIndicator
 
 export const StyledRadioIndicator = styled(PrimitiveRadioGroup.Indicator, StyledCheckboxIndicator, {
   transform: 'none',
-  height: 24,
   span: {
     display: 'inline-flex',
     width: 10,

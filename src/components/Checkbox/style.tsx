@@ -22,6 +22,7 @@ export const StyledCheckboxLabel = styled('label', {
   fontSize: '$body',
   color: '$gray',
   cursor: 'pointer',
+  lineHeight: 1,
 })
 
 export const StyledCheckboxRoot = styled(PrimitiveCheckbox.Root, {

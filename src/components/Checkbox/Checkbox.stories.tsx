@@ -9,9 +9,12 @@ export default {
 const Template: ComponentStory<typeof Checkbox> = (args) => <Checkbox {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  label: 'Brasil',
+}
 
 export const Disabled = Template.bind({})
 Disabled.args = {
+  label: 'Brasil',
   disabled: true,
 }

@@ -8,10 +8,16 @@ import {
   StyledCheckboxRoot,
 } from './style'
 
-export interface CheckboxProps extends ComponentProps<typeof StyledCheckboxRoot> {}
+export interface CheckboxProps extends ComponentProps<typeof StyledCheckboxRoot> {
+  /**
+   * A label que ficará ao lado do check
+   */
+  label: string
+}
 
-export const Checkbox = ({ ...props }: CheckboxProps) => {
-  const id = useId()
+export const Checkbox = ({ label, ...props }: CheckboxProps) => {
+  const generatedId = useId()
+  const id = props.id || generatedId
 
   return (
     <StyledCheckboxRoot {...props} id={id}>
@@ -21,7 +27,7 @@ export const Checkbox = ({ ...props }: CheckboxProps) => {
         </StyledCheckboxIndicator>
       </StyledCheckboxIndicatorWrapper>
 
-      <StyledCheckboxLabel htmlFor={id}>Brasil</StyledCheckboxLabel>
+      <StyledCheckboxLabel htmlFor={id}>{label}</StyledCheckboxLabel>
     </StyledCheckboxRoot>
   )
 }

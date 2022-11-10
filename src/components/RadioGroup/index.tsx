@@ -1,4 +1,4 @@
-import { type ComponentProps } from 'react'
+import { useId, type ComponentProps } from 'react'
 import {
   StyledRadio,
   StyledRadioGroupRoot,
@@ -19,14 +19,19 @@ export interface RadioProps extends ComponentProps<typeof StyledRadio> {
   label: string
 }
 
-export const Radio = ({ label, ...props }: RadioProps) => (
-  <StyledRadio {...props}>
-    <StyledRadioIndicatorWrapper>
-      <StyledRadioIndicator>
-        <span></span>
-      </StyledRadioIndicator>
-    </StyledRadioIndicatorWrapper>
+export const Radio = ({ label, ...props }: RadioProps) => {
+  const generatedId = useId()
+  const id = props.id || generatedId
 
-    <StyledRadioLabel htmlFor={props.id}>{label}</StyledRadioLabel>
-  </StyledRadio>
-)
+  return (
+    <StyledRadio {...props} id={id}>
+      <StyledRadioIndicatorWrapper>
+        <StyledRadioIndicator>
+          <span></span>
+        </StyledRadioIndicator>
+      </StyledRadioIndicatorWrapper>
+
+      <StyledRadioLabel htmlFor={id}>{label}</StyledRadioLabel>
+    </StyledRadio>
+  )
+}

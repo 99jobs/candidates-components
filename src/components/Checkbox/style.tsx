@@ -1,5 +1,17 @@
 import * as PrimitiveCheckbox from '@radix-ui/react-checkbox'
 import { styled } from '../../configs/stitches.config'
+import { StyledInputHelperText } from '../Input/style'
+
+export const StyledCheckboxWrapper = styled('div', {
+  position: 'relative',
+
+  '&[data-has-error="true"]': {
+    [`& ${StyledInputHelperText}`]: {
+      color: '$redSystemDark',
+      paddingLeft: 0,
+    },
+  },
+})
 
 export const StyledCheckboxIndicatorWrapper = styled('div', {
   width: 24,

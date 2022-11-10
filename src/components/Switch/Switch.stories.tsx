@@ -1,6 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { Controller, useForm } from 'react-hook-form'
 import { Switch } from '.'
+import { Button } from '../Button'
 
 export default {
   title: 'Components/Form/Switch',
@@ -22,14 +23,11 @@ Disabled.args = {
 
 export const ExampleWithRequiredValidation: ComponentStory<typeof Switch> = () => {
   const {
-    handleSubmit,
     control,
+    handleSubmit,
     getValues,
     formState: { errors },
   } = useForm()
-
-  // eslint-disable-next-line no-console
-  console.log('erros', errors)
 
   const onSubmit = () => {
     // eslint-disable-next-line no-console
@@ -37,29 +35,29 @@ export const ExampleWithRequiredValidation: ComponentStory<typeof Switch> = () =
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} style={{ minWidth: 320 }}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      style={{ display: 'flex', flexDirection: 'column', gap: 30, width: 320 }}
+    >
       <Controller
-        name="acceptTermsOfUse"
+        name="acceptTerms"
         control={control}
         rules={{
           required: {
             value: true,
-            message: 'É obrigatório aceitar os termos',
+            message: 'É obrigatório aceitar os termos de uso',
           },
         }}
         render={({ field }) => (
           <Switch
             {...field}
-            label="Aceito os termos de uso"
-            errorText={errors.acceptTermsOfUse && errors.acceptTermsOfUse.message?.toString()}
+            label="Aceito os Termos de Uso"
+            errorText={errors.acceptTerms && errors.acceptTerms.message?.toString()}
           />
         )}
       />
-      <br />
-      <br />
-      <br />
-      <br />
-      <button type="submit">Avançar</button>
+
+      <Button label="Validar" />
     </form>
   )
 }

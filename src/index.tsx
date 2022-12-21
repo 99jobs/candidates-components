@@ -7,4 +7,5 @@ export * from 'react-hook-form'
  * Componentes que criamos
  */
 export { Button } from './components/Button'
+export { Header } from './components/Header'
 export { Modal } from './components/Modal'

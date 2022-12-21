@@ -1,8 +1,8 @@
 import { expect } from '@storybook/jest'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { userEvent, within } from '@storybook/testing-library'
+import { Eye, EyeSlash, User } from 'iconsax-react'
 import { useForm } from 'react-hook-form'
-import { MdOutlineVisibility, MdPerson, MdVisibility } from 'react-icons/md'
 import isEmail from 'validator/es/lib/isEmail'
 import isStrongPassword from 'validator/es/lib/isStrongPassword'
 import { Input } from '.'
@@ -15,9 +15,9 @@ export default {
     sufixIconButton: {
       options: ['Example icon 1', 'Example icon 2', 'Example icon 3'],
       mapping: {
-        'Example icon 1': <Button aria-label="Label do btn" prefixIcon={<MdOutlineVisibility />} />,
-        'Example icon 2': <Button aria-label="Label do btn" prefixIcon={<MdVisibility />} />,
-        'Example icon 3': <Button aria-label="Label do btn" prefixIcon={<MdPerson />} />,
+        'Example icon 1': <Button aria-label="Label do btn" prefixIcon={<EyeSlash />} />,
+        'Example icon 2': <Button aria-label="Label do btn" prefixIcon={<Eye />} />,
+        'Example icon 3': <Button aria-label="Label do btn" prefixIcon={<User />} />,
       },
     },
   },
@@ -30,7 +30,7 @@ Default.args = {
   label: 'CPF',
   placeholder: 'CPF',
   helperText: 'Um texto para auxiliar',
-  sufixIconButton: <Button aria-label="Label do btn" prefixIcon={<MdOutlineVisibility />} />,
+  sufixIconButton: <Button aria-label="Label do btn" prefixIcon={<EyeSlash />} />,
 }
 
 // Abaixo um exemplo de implementação do componente Input, utilizando a lib react-hook-form para fazer as devidas validações

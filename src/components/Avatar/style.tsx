@@ -14,8 +14,6 @@ export const StyledAvatar = styled(AvatarPrimitive.Root, {
   verticalAlign: 'middle',
   overflow: 'hidden',
   userSelect: 'none',
-  width: 107,
-  height: 107,
   borderRadius: '100%',
   overflowX: 'hidden',
 })
@@ -36,7 +34,6 @@ export const StyledAvatarFallback = styled(AvatarPrimitive.Fallback, {
   justifyContent: 'center',
   backgroundColor: '$bluePrimaryLight',
   color: '$onPurpleSystemLight',
-  fontSize: 24,
   lineHeight: 1,
   fontWeight: 500,
   backgroundImage: 'url(assets/icons/user.svg)',

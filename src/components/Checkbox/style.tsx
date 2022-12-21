@@ -25,9 +25,7 @@ export const StyledCheckboxIndicatorWrapper = styled('div', {
   cursor: 'pointer',
 })
 
-export const StyledCheckboxIndicator = styled(PrimitiveCheckbox.Indicator, {
-  transform: 'translateY(2px)',
-})
+export const StyledCheckboxIndicator = styled(PrimitiveCheckbox.Indicator, {})
 
 export const StyledCheckboxLabel = styled('label', {
   fontWeight: 400,

@@ -1,3 +1,4 @@
+import { Eye, EyeSlash } from 'iconsax-react'
 import {
   forwardRef,
   useId,
@@ -6,7 +7,6 @@ import {
   type ComponentProps,
   type ReactNode,
 } from 'react'
-import { MdVisibility, MdVisibilityOff } from 'react-icons/md'
 import { Button } from '../Button'
 import {
   StyledInputField,
@@ -83,7 +83,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {showAndHidePasswordButton ? (
           <Button
             aria-label="Exibir senha"
-            prefixIcon={inputType === 'password' ? <MdVisibility /> : <MdVisibilityOff />}
+            prefixIcon={inputType === 'password' ? <Eye /> : <EyeSlash />}
             onClick={handleInputType}
           />
         ) : (

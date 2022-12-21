@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { MdClose } from 'react-icons/md'
+import { CloseCircle } from 'iconsax-react'
 import { Tag } from '.'
 
 export default {
@@ -25,7 +25,7 @@ WithRemoveIcon.args = {
         aria-label="Remover opção Design centrado no usuário"
         onClick={() => alert('Alguma ação')}
       >
-        <MdClose />
+        <CloseCircle />
       </button>
     </>
   ),

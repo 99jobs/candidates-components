@@ -1,3 +1,4 @@
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { globalStyles } from '../src/configs/stitches.config'
 
 export const parameters = {
@@ -10,7 +11,6 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  layout: 'centered',
   a11y: {
     config: {
       rules: [
@@ -18,6 +18,10 @@ export const parameters = {
         { id: 'color-contrast', enabled: false },
       ],
     },
+  },
+  viewport: {
+    viewports: INITIAL_VIEWPORTS,
+    defaultViewport: 'galaxys9',
   },
 }
 

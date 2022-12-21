@@ -1,5 +1,5 @@
+import { ArrowDown2, CloseCircle } from 'iconsax-react'
 import { forwardRef, type ComponentProps } from 'react'
-import { MdClose, MdExpandMore } from 'react-icons/md'
 import { Input } from '../Input'
 import { StyledInputHelperText } from '../Input/style'
 import { Tag } from '../Tag'
@@ -18,11 +18,11 @@ export const Select = forwardRef(({ errorText, helperText, ...props }: SelectPro
       classNamePrefix={`custom-select`}
       components={{
         IndicatorSeparator: () => <></>,
-        DropdownIndicator: () => <MdExpandMore />,
+        DropdownIndicator: () => <ArrowDown2 />,
         MultiValueContainer: ({ children }) => <Tag>{children}</Tag>,
         MultiValueRemove: ({ innerProps }) => (
           <div {...innerProps} role="button">
-            <MdClose />
+            <CloseCircle />
           </div>
         ),
         NoOptionsMessage: () => <StyledNoOption>Nenhuma opção</StyledNoOption>,

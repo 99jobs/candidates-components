@@ -3,7 +3,6 @@
  */
 export * from 'react-grid-system'
 export * from 'react-hook-form'
-export * from 'react-icons/md'
 /**
  * Componentes que criamos
  */

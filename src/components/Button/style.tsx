@@ -1,7 +1,6 @@
 import { styled } from '../../configs/stitches.config'
 
 export const StyledButton = styled('button', {
-  width: '100%',
   height: '44px',
   borderRadius: '$sm',
   fontSize: 14,
@@ -14,10 +13,6 @@ export const StyledButton = styled('button', {
   justifyContent: 'center',
   paddingX: 22,
   gap: 14,
-
-  '@md': {
-    width: 'auto',
-  },
 
   defaultVariants: {
     color: 'default',

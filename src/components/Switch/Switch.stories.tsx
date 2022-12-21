@@ -1,27 +1,27 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { Controller, useForm } from 'react-hook-form'
-import { Checkbox } from '.'
+import { Switch } from '.'
 import { Button } from '../Button'
 
 export default {
-  title: 'Components/Form/Checkbox',
-  component: Checkbox,
-} as ComponentMeta<typeof Checkbox>
+  title: 'Components/Form/Switch',
+  component: Switch,
+} as ComponentMeta<typeof Switch>
 
-const Template: ComponentStory<typeof Checkbox> = (args) => <Checkbox {...args} />
+const Template: ComponentStory<typeof Switch> = (args) => <Switch {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  label: 'Brasil',
+  label: 'Aceito os Termos de Uso',
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
-  label: 'Brasil',
+  label: 'Aceito os Termos de Uso',
   disabled: true,
 }
 
-export const ExampleWithRequiredValidation: ComponentStory<typeof Checkbox> = () => {
+export const ExampleWithRequiredValidation: ComponentStory<typeof Switch> = () => {
   const {
     control,
     handleSubmit,
@@ -40,19 +40,19 @@ export const ExampleWithRequiredValidation: ComponentStory<typeof Checkbox> = ()
       style={{ display: 'flex', flexDirection: 'column', gap: 30, width: 320 }}
     >
       <Controller
-        name="country"
+        name="acceptTerms"
         control={control}
         rules={{
           required: {
             value: true,
-            message: 'É obrigatório informar o país',
+            message: 'É obrigatório aceitar os termos de uso',
           },
         }}
         render={({ field }) => (
-          <Checkbox
+          <Switch
             {...field}
-            label="Brasil"
-            errorText={errors.country && errors.country.message?.toString()}
+            label="Aceito os Termos de Uso"
+            errorText={errors.acceptTerms && errors.acceptTerms.message?.toString()}
           />
         )}
       />

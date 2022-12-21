@@ -20,7 +20,7 @@ export const Switch = forwardRef(
       {/* Necessário ignorar erro de tipagem pois o props.onChange recebido espera um evento, e o onCheckedChange envia bool */}
       {/* @ts-expect-error */}
       <StyledSwitchRoot ref={ref} {...props} onCheckedChange={props.onChange}>
-        <StyledSwitchThumb />
+        <StyledSwitchThumb aria-label={label} role="button" />
       </StyledSwitchRoot>
 
       {(errorText || helperText) && (

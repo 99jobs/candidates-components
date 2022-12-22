@@ -1,4 +1,4 @@
-import { type ComponentProps } from 'react'
+import { type ComponentProps } from '@stitches/react'
 import { StyledChipContainer } from './style'
 
 export interface ChipProps extends ComponentProps<typeof StyledChipContainer> {

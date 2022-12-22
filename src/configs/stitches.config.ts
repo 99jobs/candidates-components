@@ -111,6 +111,10 @@ export const globalStyles = globalCss({
     fontSize: '$h6',
   },
 
+  strong: {
+    fontSize: 'inherit',
+  },
+
   'input, textarea, select': {
     '&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus': {
       '-webkit-box-shadow': '0 0 0px 1000px #fff inset',

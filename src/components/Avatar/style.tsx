@@ -5,6 +5,7 @@ export const Container = styled('div', {
   width: 'fit-content',
   display: 'flex',
   zIndex: 2,
+  position: 'relative',
 })
 
 export const StyledAvatar = styled(AvatarPrimitive.Root, {
@@ -44,10 +45,11 @@ export const StyledAvatarFallback = styled(AvatarPrimitive.Fallback, {
 
 export const StyledInputLabel = styled('label', {
   position: 'absolute',
+  top: '100%',
+  left: '50%',
   fontWeight: 600,
   fontSize: '$small',
   color: '$gray',
-  margin: '79px 65px',
   backgroundColor: '$backgroundGrayLight',
   padding: '10px 12px',
   borderRadius: 50,

@@ -18,24 +18,17 @@ Default.args = {
   fallback: 'CA',
 }
 
-export const DefaultWithoutLabel = Template.bind({})
-DefaultWithoutLabel.args = {
+export const DefaultWithInput = Template.bind({})
+DefaultWithInput.args = {
   src: 'https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80',
   alt: 'girl',
   fallback: 'CA',
-  label: false,
-}
-
-export const DefaultWithLabel = Template.bind({})
-DefaultWithLabel.args = {
-  src: 'https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80',
-  alt: 'girl',
-  fallback: 'CA',
+  isInput: true,
 }
 
 /* Testes */
 
-DefaultWithLabel.play = async ({ canvasElement }) => {
+DefaultWithInput.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   await new Promise((r) => setTimeout(r, 1000))
   // Testar se está renderizando uma img com o alt e a src informado

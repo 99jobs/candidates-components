@@ -1,4 +1,5 @@
-import { type ComponentProps, type ReactNode } from 'react'
+import { type ComponentProps } from '@stitches/react'
+import { type ReactNode } from 'react'
 import { StyledButton } from './style'
 
 export interface ButtonProps extends ComponentProps<typeof StyledButton> {

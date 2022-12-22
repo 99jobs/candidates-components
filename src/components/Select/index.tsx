@@ -1,5 +1,6 @@
+import { type ComponentProps } from '@stitches/react'
 import { ArrowDown2, CloseCircle } from 'iconsax-react'
-import { forwardRef, type ComponentProps } from 'react'
+import { forwardRef } from 'react'
 import { Input } from '../Input'
 import { StyledInputHelperText } from '../Input/style'
 import { Tag } from '../Tag'

@@ -1,4 +1,4 @@
-import { type ComponentProps } from 'react'
+import { type ComponentProps } from '@stitches/react'
 import { StyledTagContainer } from './style'
 
 export interface TagProps extends ComponentProps<typeof StyledTagContainer> {}

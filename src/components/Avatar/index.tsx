@@ -47,6 +47,11 @@ export const Avatar = ({
   onChange,
   ...props
 }: AvatarOwnProps) => {
+  let fallback2Letters = fallback
+  if (fallback2Letters?.length > 2) {
+    fallback2Letters = fallback2Letters.substring(0, 2)
+  }
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { files, value } = e.target
 
@@ -66,7 +71,9 @@ export const Avatar = ({
     <Container>
       <StyledAvatar style={{ width: size, height: size }} {...props}>
         <StyledAvatarImage alt={alt} src={src} />
-        <StyledAvatarFallback style={{ fontSize: size / 2.3 }}>{fallback}</StyledAvatarFallback>
+        <StyledAvatarFallback style={{ fontSize: size / 2.3 }}>
+          {fallback2Letters}
+        </StyledAvatarFallback>
       </StyledAvatar>
       {isInput && (
         <StyledInputLabel>

@@ -18,12 +18,15 @@ Authenticated.args = {
     <>
       <div>
         <h2>
-          Olá, <strong>Visitante</strong>
+          Olá, <strong>Mark!</strong>
         </h2>
-        <p>A sua oportunidade está aqui</p>
       </div>
 
-      <Button color="ghost" label="Acessar" prefixIcon={<ProfileCircle />} css={{ paddingX: 8 }} />
+      <Avatar
+        src={`https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1448830269/gzcifut4c2xah95x0ewd.jpg`}
+        fallback={'MZ'}
+        alt="Foto do usuário"
+      />
     </>
   ),
 }
@@ -34,15 +37,12 @@ Unauthenticated.args = {
     <>
       <div>
         <h2>
-          Olá, <strong>Mark!</strong>
+          Olá, <strong>Visitante</strong>
         </h2>
+        <p>A sua oportunidade está aqui</p>
       </div>
 
-      <Avatar
-        src={`https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1448830269/gzcifut4c2xah95x0ewd.jpg`}
-        fallback={'MZ'}
-        alt="Foto do usuário"
-      />
+      <Button color="ghost" label="Acessar" prefixIcon={<ProfileCircle />} css={{ paddingX: 8 }} />
     </>
   ),
 }

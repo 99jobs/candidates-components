@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { type ComponentProps } from '@stitches/react'
+import { Camera } from 'iconsax-react'
 import { type ChangeEvent } from 'react'
-import { MdOutlineCameraAlt } from 'react-icons/md'
 import {
   Container,
   StyledAvatar,
@@ -28,19 +28,30 @@ export interface AvatarOwnProps extends ComponentProps<typeof StyledAvatar> {
   fallback: string
 
   /**
-   * Caso true, o input vem com o texto 'Editar'
+   * Caso true, o input vem com uma tag 'Editar'
    */
-  label?: boolean
+  isInput?: boolean
+
+  /**
+   * O tamanho do avatar. Default 40.
+   */
+  size?: number
 }
 
 export const Avatar = ({
   alt,
   src,
   fallback,
-  label = true,
+  isInput = false,
+  size = 40,
   onChange,
   ...props
 }: AvatarOwnProps) => {
+  let fallback2Letters = fallback
+  if (fallback2Letters?.length > 2) {
+    fallback2Letters = fallback2Letters.substring(0, 2)
+  }
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { files, value } = e.target
 
@@ -58,15 +69,19 @@ export const Avatar = ({
 
   return (
     <Container>
-      <StyledAvatar {...props}>
+      <StyledAvatar style={{ width: size, height: size }} {...props}>
         <StyledAvatarImage alt={alt} src={src} />
-        <StyledAvatarFallback>{fallback}</StyledAvatarFallback>
+        <StyledAvatarFallback style={{ fontSize: size / 2.3 }}>
+          {fallback2Letters}
+        </StyledAvatarFallback>
       </StyledAvatar>
-      <StyledInputLabel>
-        <MdOutlineCameraAlt />
-        <StyledInputField type="file" id="arquivo" onChange={handleChange} />
-        {label ? 'Editar' : ''}
-      </StyledInputLabel>
+      {isInput && (
+        <StyledInputLabel>
+          <Camera />
+          <StyledInputField type="file" id="arquivo" onChange={handleChange} />
+          Editar
+        </StyledInputLabel>
+      )}
     </Container>
   )
 }

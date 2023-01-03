@@ -67,7 +67,7 @@ export const globalStyles = globalCss({
 
   ':root': {
     $h1: '30px',
-    $h2: '24px',
+    $h2: '20px',
     $h3: '16px',
     $h4: '14px',
     $h5: '14px',
@@ -109,6 +109,10 @@ export const globalStyles = globalCss({
 
   h6: {
     fontSize: '$h6',
+  },
+
+  strong: {
+    fontSize: 'inherit',
   },
 
   'input, textarea, select': {

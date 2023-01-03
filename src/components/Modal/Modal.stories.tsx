@@ -1,6 +1,6 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { CloseCircle } from 'iconsax-react'
 import { useEffect, useState } from 'react'
-import { MdClose } from 'react-icons/md'
 import { Modal, ModalBody, ModalClose, ModalFooter, ModalHeader, ModalTitle } from '.'
 import { Button } from '../Button'
 
@@ -29,7 +29,7 @@ const Template: ComponentStory<typeof Modal> = (args) => {
           <ModalTitle>Tem certeza?</ModalTitle>
 
           <ModalClose>
-            <MdClose size={32} />
+            <CloseCircle size={32} />
           </ModalClose>
         </ModalHeader>
 

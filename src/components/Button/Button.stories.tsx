@@ -1,5 +1,5 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { MdOutlineVisibility, MdPerson, MdPersonOutline, MdVisibility } from 'react-icons/md'
+import { ProfileCircle } from 'iconsax-react'
 import { Button } from './index'
 
 export default {
@@ -9,17 +9,17 @@ export default {
     prefixIcon: {
       options: ['Example icon 1', 'Example icon 2', 'Example icon 3'],
       mapping: {
-        'Example icon 1': <MdOutlineVisibility />,
-        'Example icon 2': <MdVisibility />,
-        'Example icon 3': <MdPerson />,
+        'Example icon 1': <ProfileCircle />,
+        'Example icon 2': <ProfileCircle />,
+        'Example icon 3': <ProfileCircle />,
       },
     },
     sufixIcon: {
       options: ['Example icon 1', 'Example icon 2', 'Example icon 3'],
       mapping: {
-        'Example icon 1': <MdOutlineVisibility />,
-        'Example icon 2': <MdVisibility />,
-        'Example icon 3': <MdPerson />,
+        'Example icon 1': <ProfileCircle />,
+        'Example icon 2': <ProfileCircle />,
+        'Example icon 3': <ProfileCircle />,
       },
     },
   },
@@ -35,18 +35,18 @@ Default.args = {
 export const DefaultWithPrefixIcon = Template.bind({})
 DefaultWithPrefixIcon.args = {
   label: 'Button',
-  prefixIcon: <MdPersonOutline />,
+  prefixIcon: <ProfileCircle />,
 }
 
 export const DefaultWithSufixIcon = Template.bind({})
 DefaultWithSufixIcon.args = {
   label: 'Button',
-  sufixIcon: <MdPersonOutline />,
+  sufixIcon: <ProfileCircle />,
 }
 
 export const DefaultWithoutLabel = Template.bind({})
 DefaultWithoutLabel.args = {
-  prefixIcon: <MdPersonOutline />,
+  prefixIcon: <ProfileCircle />,
   'aria-label': 'Botão para salvar o formulário de Dados Pessoais',
 }
 

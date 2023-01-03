@@ -1,12 +1,6 @@
-import {
-  forwardRef,
-  useId,
-  useState,
-  type ChangeEvent,
-  type ComponentProps,
-  type ReactNode,
-} from 'react'
-import { MdVisibility, MdVisibilityOff } from 'react-icons/md'
+import { type ComponentProps } from '@stitches/react'
+import { Eye, EyeSlash } from 'iconsax-react'
+import { forwardRef, useId, useState, type ChangeEvent, type ReactNode } from 'react'
 import { Button } from '../Button'
 import {
   StyledInputField,
@@ -83,7 +77,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {showAndHidePasswordButton ? (
           <Button
             aria-label="Exibir senha"
-            prefixIcon={inputType === 'password' ? <MdVisibility /> : <MdVisibilityOff />}
+            prefixIcon={inputType === 'password' ? <Eye /> : <EyeSlash />}
             onClick={handleInputType}
           />
         ) : (

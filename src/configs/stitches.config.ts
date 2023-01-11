@@ -24,6 +24,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
       borderWidths: {},
       borderStyles: {},
       radii: {
+        xs: '4px',
         sm: '6px',
         md: '8px',
         lg: '10px',
@@ -66,7 +67,7 @@ export const globalStyles = globalCss({
   },
 
   ':root': {
-    $h1: '30px',
+    $h1: '24px',
     $h2: '20px',
     $h3: '16px',
     $h4: '14px',

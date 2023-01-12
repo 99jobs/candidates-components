@@ -1,6 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { OpportunityCard } from '.'
 import { Carousel } from '../Carousel'
+import { Chip } from '../Chip'
 import { CompanyLogo } from '../CompanyLogo'
 import { FavoriteButton } from '../FavoriteButton'
 import { Match } from '../Match'
@@ -23,24 +24,26 @@ export const Default = Template.bind({})
 Default.args = {
   children: (
     <OpportunityCard>
-      <Carousel>
-        <div>
-          <img src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg" />
-        </div>
-        <div>
-          <img src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg" />
-        </div>
-        <div>
-          <img src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg" />
-        </div>
-      </Carousel>
-
       <OpportunityCardHero>
+        <Carousel showArrows={false} showStatus={false}>
+          <div>
+            <img src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg" />
+          </div>
+          <div>
+            <img src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg" />
+          </div>
+          <div>
+            <img src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg" />
+          </div>
+        </Carousel>
+
         <CompanyLogo src="https://e3ba6e8732e83984.cdn.gocache.net/uploads/image/file/2649247/regular_f75dbd2bbeb7bd07e7f003fbe1f5920e.png" />
 
-        <OpportunityExpiresIn />
-        <Match />
-        <Rating />
+        <OpportunityExpiresIn aboveIcon="restam" bellowIcon="24h" />
+
+        <Match match={86} />
+
+        <Rating rate={4.2} />
       </OpportunityCardHero>
 
       <OpportunityCardContent>
@@ -48,11 +51,17 @@ Default.args = {
 
         <FavoriteButton />
 
-        <OpportunityTags />
+        <OpportunityTags>
+          <Chip label="Remoto" color="outlined" />
+          <Chip label="Afirmativa para Mulheres" color="outlined" />
+          <Chip label="Estágio" color="level" />
+        </OpportunityTags>
 
-        <OpportunityOpenUntil />
+        <OpportunityOpenUntil>
+          Inscrições abertas até <time dateTime="2022-11-28">28/11/2022</time>
+        </OpportunityOpenUntil>
 
-        <OpportunityViews />
+        <OpportunityViews>Mais de 6.456 visualizações desde semana passada</OpportunityViews>
       </OpportunityCardContent>
     </OpportunityCard>
   ),

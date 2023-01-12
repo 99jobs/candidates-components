@@ -1,13 +1,10 @@
-import { ReactElement } from 'react'
-import { Carousel as Slider } from 'react-responsive-carousel'
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import { Carousel as Slider, CarouselProps as SliderProps } from 'react-responsive-carousel'
+import { StyledCarouselWrapper } from './style'
 
-export interface CarouselProps {
-  children: ReactElement[]
-}
+export interface CarouselProps extends Partial<SliderProps> {}
 
-export const Carousel = ({ children, ...props }: CarouselProps) => (
-  <Slider emulateTouch swipeable showThumbs={false} {...props}>
-    {children}
-  </Slider>
+export const Carousel = ({ ...props }: CarouselProps) => (
+  <StyledCarouselWrapper>
+    <Slider emulateTouch swipeable showThumbs={false} {...props} />
+  </StyledCarouselWrapper>
 )

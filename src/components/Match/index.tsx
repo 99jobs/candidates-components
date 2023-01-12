@@ -3,12 +3,17 @@ import Progressbar from 'react-js-progressbar'
 import { colors } from '../../configs/colors'
 import { StyledMatch } from './style'
 
-export interface StyledMatchProps extends ComponentProps<typeof StyledMatch> {}
+export interface StyledMatchProps extends ComponentProps<typeof StyledMatch> {
+  /**
+   * Qual o valor do match, entre 0 e 100
+   */
+  match: number
+}
 
-export const Match = ({ ...props }: StyledMatchProps) => (
+export const Match = ({ match, ...props }: StyledMatchProps) => (
   <StyledMatch {...props}>
     <Progressbar
-      input={90}
+      input={match}
       trailColor="none"
       trailWidth={12}
       pathWidth={12}

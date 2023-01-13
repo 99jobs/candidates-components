@@ -6,7 +6,7 @@ export default {
   component: Carousel,
   parameters: {
     componentSubtitle:
-      'Para usar esse componente em outro projeto, é necessário instalar a lib react-responsive-carousel nesse outro projeto e importar o CSS react-responsive-carousel/lib/styles/carousel.min.css nesse outro projeto também.',
+      'Para usar esse componente em outro projeto, é necessário importar o CSS candidates-components/node_modules/react-responsive-carousel/lib/styles/carousel.min.css nesse outro projeto também.',
   },
 } as ComponentMeta<typeof Carousel>
 

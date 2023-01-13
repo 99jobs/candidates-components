@@ -2,6 +2,8 @@ import { styled } from '../../configs/stitches.config'
 
 export const StyledOpportunityExpiresIn = styled('div', {
   width: 48,
+  height: 75,
+  lineHeight: '46px',
   backgroundColor: '$backgroundGrayLight',
   borderBottomLeftRadius: '$xs',
   borderBottomRightRadius: '$xs',
@@ -15,4 +17,8 @@ export const StyledOpportunityExpiresIn = styled('div', {
   fontWeight: 700,
   fontSize: '$small',
   color: '$gray',
+
+  svg: {
+    position: 'absolute',
+  },
 })

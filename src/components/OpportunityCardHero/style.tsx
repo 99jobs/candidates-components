@@ -1,4 +1,4 @@
-import { styled } from '@stitches/react'
+import { styled } from '../../configs/stitches.config'
 import { StyledCarouselWrapper } from '../Carousel/style'
 import { StyledCompanyLogo } from '../CompanyLogo/style'
 import { StyledMatch } from '../Match/style'
@@ -12,6 +12,14 @@ export const StyledOpportunityCardHero = styled('div', {
   border: '1px solid rgba(233, 233, 233, 0.8)',
   marginBottom: 8,
 
+  '@md': {
+    height: 296,
+  },
+
+  '@lg': {
+    height: 336,
+  },
+
   '&:before': {
     content: '',
     position: 'absolute',
@@ -24,12 +32,21 @@ export const StyledOpportunityCardHero = styled('div', {
     pointerEvents: 'none',
   },
   [`${StyledCarouselWrapper}`]: {
+    height: '100%',
     borderRadius: 'inherit',
     overflow: 'hidden',
 
     img: {
       height: 178,
       objectFit: 'cover',
+
+      '@md': {
+        height: 296,
+      },
+
+      '@lg': {
+        height: 336,
+      },
     },
   },
   [`${StyledCompanyLogo}`]: {
@@ -46,7 +63,7 @@ export const StyledOpportunityCardHero = styled('div', {
   },
   [`${StyledMatch}`]: {
     position: 'absolute',
-    top: 82,
+    bottom: 40,
     right: 17,
     zIndex: 1,
   },

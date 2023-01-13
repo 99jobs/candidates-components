@@ -67,7 +67,7 @@ export const globalStyles = globalCss({
   },
 
   ':root': {
-    $h1: '24px',
+    $h1: '16px',
     $h2: '20px',
     $h3: '16px',
     $h4: '14px',
@@ -77,7 +77,7 @@ export const globalStyles = globalCss({
     $small: '10px',
 
     '@md': {
-      $h1: '48px',
+      $h1: '20px',
       $h2: '36px',
       $h3: '24px',
       $h4: '20px',

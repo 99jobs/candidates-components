@@ -1,5 +1,5 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { ProfileCircle } from 'iconsax-react'
+import { Profile } from 'iconsax-react'
 import { Button } from './index'
 
 export default {
@@ -9,17 +9,17 @@ export default {
     prefixIcon: {
       options: ['Example icon 1', 'Example icon 2', 'Example icon 3'],
       mapping: {
-        'Example icon 1': <ProfileCircle />,
-        'Example icon 2': <ProfileCircle />,
-        'Example icon 3': <ProfileCircle />,
+        'Example icon 1': <Profile size={19} />,
+        'Example icon 2': <Profile size={19} />,
+        'Example icon 3': <Profile size={19} />,
       },
     },
     sufixIcon: {
       options: ['Example icon 1', 'Example icon 2', 'Example icon 3'],
       mapping: {
-        'Example icon 1': <ProfileCircle />,
-        'Example icon 2': <ProfileCircle />,
-        'Example icon 3': <ProfileCircle />,
+        'Example icon 1': <Profile size={19} />,
+        'Example icon 2': <Profile size={19} />,
+        'Example icon 3': <Profile size={19} />,
       },
     },
   },
@@ -35,18 +35,18 @@ Default.args = {
 export const DefaultWithPrefixIcon = Template.bind({})
 DefaultWithPrefixIcon.args = {
   label: 'Button',
-  prefixIcon: <ProfileCircle />,
+  prefixIcon: <Profile size={19} />,
 }
 
 export const DefaultWithSufixIcon = Template.bind({})
 DefaultWithSufixIcon.args = {
   label: 'Button',
-  sufixIcon: <ProfileCircle />,
+  sufixIcon: <Profile size={19} />,
 }
 
 export const DefaultWithoutLabel = Template.bind({})
 DefaultWithoutLabel.args = {
-  prefixIcon: <ProfileCircle />,
+  prefixIcon: <Profile size={19} />,
   'aria-label': 'Botão para salvar o formulário de Dados Pessoais',
 }
 

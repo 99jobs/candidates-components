@@ -29,6 +29,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
         md: '8px',
         lg: '10px',
         xlg: '16px',
+        xxlg: '32px',
       },
       shadows: {},
       zIndices: {},
@@ -47,7 +48,6 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
       marginY: (value: number) => ({ marginTop: value, marginBottom: value }),
       paddingX: (value: number) => ({ paddingLeft: value, paddingRight: value }),
       paddingY: (value: number) => ({ paddingTop: value, paddingBottom: value }),
-      svgFontSize: (value: number) => ({ fontSize: value + 8 }),
     },
   })
 

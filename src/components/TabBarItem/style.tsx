@@ -3,6 +3,7 @@ import { styled } from '../../configs/stitches.config'
 
 export const StyledTabBarItemIcon = styled('span', {
   color: '$gray',
+  margin: '6px 0 4px 0',
 })
 
 export const StyledTabBarItemLabel = styled('span', {
@@ -23,8 +24,7 @@ export const StyledTabBarItem = styled(PrimitiveTabs.Trigger, {
   background: 'transparent',
   marginX: 14,
   cursor: 'pointer',
-  borderBottom: '4px solid transparent',
-  paddingBottom: 6,
+  paddingBottom: 8,
 
   '&:hover': {
     [`& ${StyledTabBarItemIcon}`]: {
@@ -33,9 +33,5 @@ export const StyledTabBarItem = styled(PrimitiveTabs.Trigger, {
     [`& ${StyledTabBarItemLabel}`]: {
       color: '$grayDark',
     },
-  },
-
-  '&[data-state="active"]': {
-    borderBottomColor: '$bluePrimary',
   },
 })

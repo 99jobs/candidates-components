@@ -7,7 +7,6 @@ export const StyledTabBarItemIcon = styled('span', {
 })
 
 export const StyledTabBarItemLabel = styled('span', {
-  width: 95,
   fontWeight: 600,
   fontSize: '$small',
   color: '$gray',

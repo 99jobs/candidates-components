@@ -15,6 +15,11 @@ export const StyledTabBarItems = styled(PrimitiveTabs.List, {
     backgroundColor: '$bluePrimary',
     transition: 'left 0.3s ease-in-out, width 0.4s ease-in-out',
     borderRadius: 32,
+    opacity: 0,
+
+    '&[style]': {
+      opacity: 1,
+    },
   },
 
   '.active-circle': {
@@ -27,5 +32,10 @@ export const StyledTabBarItems = styled(PrimitiveTabs.List, {
     borderRadius: '50%',
     backgroundColor: '$backgroundGrayLight',
     transition: 'left 0.3s ease-in-out',
+    opacity: 0,
+
+    '&[style]': {
+      opacity: 1,
+    },
   },
 })

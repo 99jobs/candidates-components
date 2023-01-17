@@ -7,8 +7,8 @@ export const StyledOpportunityCardContent = styled('div', {
 
   [`${StyledFavoriteButton}`]: {
     position: 'absolute',
-    top: 6,
-    right: 0,
+    top: 0,
+    right: 20,
   },
 
   [`${StyledOpportunityOpenUntil}`]: {

@@ -16,10 +16,14 @@ export const StyledOpportunityCardContent = styled('div', {
   },
 
   h1: {
-    fontSize: '$h1',
+    fontSize: '$h2',
     color: '$grayDark',
     fontWeight: 700,
     marginBottom: 8,
     paddingRight: 35,
+    textOverflow: 'ellipsis',
+    display: '-webkit-box',
+    '-webkit-box-orient': 'vertical',
+    '-webkit-line-clamp': 2,
   },
 })

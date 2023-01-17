@@ -17,9 +17,9 @@ Authenticated.args = {
   children: (
     <>
       <div>
-        <h2>
+        <h1>
           Olá, <strong>Mark!</strong>
-        </h2>
+        </h1>
       </div>
 
       <Avatar

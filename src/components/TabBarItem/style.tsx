@@ -8,7 +8,7 @@ export const StyledTabBarItemIcon = styled('span', {
 
 export const StyledTabBarItemLabel = styled('span', {
   fontWeight: 600,
-  fontSize: '$small',
+  fontSize: '$body',
   color: '$gray',
   overflow: 'hidden',
   textOverflow: 'ellipsis',

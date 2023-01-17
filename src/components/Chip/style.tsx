@@ -5,7 +5,7 @@ export const StyledChipContainer = styled('span', {
   paddingX: 8,
   paddingY: 4,
   fontWeight: 600,
-  fontSize: 10,
+  fontSize: '$small',
   border: '1px solid transparent',
 
   variants: {

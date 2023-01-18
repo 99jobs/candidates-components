@@ -14,7 +14,7 @@ export const StyledTabBarItemLabel = styled('span', {
   textOverflow: 'ellipsis',
   display: '-webkit-box',
   '-webkit-box-orient': 'vertical',
-  '-webkit-line-clamp': 2,
+  '-webkit-line-clamp': 1,
 })
 
 export const StyledTabBarItem = styled(PrimitiveTabs.Trigger, {

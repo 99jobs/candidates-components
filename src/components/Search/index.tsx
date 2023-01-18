@@ -30,22 +30,13 @@ export const Search = ({ children, ...props }: SearchProps) => {
     setIsClosing(false)
 
     setTimeout(() => {
-      window.scroll({
-        top: 200,
-        behavior: 'smooth',
-      })
+      document.body.classList.add('search-open')
     }, 500)
   }
 
   const closeSearchFullScreen = () => {
     setIsClosing(true)
-
-    setTimeout(() => {
-      window.scroll({
-        top: 0,
-        behavior: 'smooth',
-      })
-    }, 100)
+    document.body.classList.remove('search-open')
 
     setTimeout(() => {
       setIsOpen(false)

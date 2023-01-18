@@ -56,6 +56,8 @@ export const StyledSearchInput = styled('input', {
   outline: 'none',
   flexGrow: 1,
   color: '$gray',
+  background: 'transparent',
+  '-webkit-appearance': 'textfield;',
 
   '&::placeholder': {
     fontSize: 12,

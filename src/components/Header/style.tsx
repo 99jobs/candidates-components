@@ -12,7 +12,7 @@ export const StyledHeader = styled('header', {
     fontWeight: 400,
 
     strong: {
-      fontWeight: 600,
+      fontWeight: 900,
     },
   },
 })

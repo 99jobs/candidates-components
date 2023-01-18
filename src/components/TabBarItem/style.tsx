@@ -7,20 +7,21 @@ export const StyledTabBarItemIcon = styled('span', {
 })
 
 export const StyledTabBarItemLabel = styled('span', {
-  maxWidth: 90,
+  fontWeight: 600,
+  fontSize: '$body',
+  color: '$gray',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
-  whiteSpace: 'nowrap',
-  fontWeight: 600,
-  fontSize: '$small',
-  color: '$gray',
+  display: '-webkit-box',
+  '-webkit-box-orient': 'vertical',
+  '-webkit-line-clamp': 2,
 })
 
 export const StyledTabBarItem = styled(PrimitiveTabs.Trigger, {
   display: 'inline-flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   background: 'transparent',
   marginX: 14,
   cursor: 'pointer',

@@ -17,19 +17,13 @@ LevelChip.args = {
 export const ActingModeChip = Template.bind({})
 ActingModeChip.args = {
   label: 'Remoto',
-  color: 'actingMode',
+  color: 'outlined',
 }
 
 export const PCDChip = Template.bind({})
 PCDChip.args = {
   label: 'PCD',
-  color: 'pcd',
-}
-
-export const HighlightChip = Template.bind({})
-HighlightChip.args = {
-  label: 'Destaque',
-  color: 'highlight',
+  color: 'outlined',
 }
 
 export const UrgentChip = Template.bind({})

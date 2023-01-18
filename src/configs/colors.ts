@@ -57,7 +57,7 @@ export const colors = {
   onBackgroundGrayLight: '#525252',
 
   graySoft: '#DFE1E2',
-  onGraySoft: '#525252',
+  onGraySoft: '#232222',
 
   grayLight: '#ABB3BF',
   onGrayLight: '#FFFFFF',

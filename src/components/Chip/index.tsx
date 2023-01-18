@@ -7,9 +7,9 @@ export interface ChipProps extends ComponentProps<typeof StyledChipContainer> {
    */
   label: string
   /**
-   * A cor do chip
+   * O estilo do chip
    */
-  color: 'actingMode' | 'pcd' | 'highlight' | 'urgent' | 'level'
+  color: 'outlined' | 'urgent' | 'level'
 }
 
 export const Chip = ({ label, color, ...props }: ChipProps) => (

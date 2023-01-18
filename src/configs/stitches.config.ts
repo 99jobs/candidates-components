@@ -24,10 +24,12 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
       borderWidths: {},
       borderStyles: {},
       radii: {
+        xs: '4px',
         sm: '6px',
         md: '8px',
         lg: '10px',
         xlg: '16px',
+        xxlg: '32px',
       },
       shadows: {},
       zIndices: {},
@@ -46,7 +48,6 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
       marginY: (value: number) => ({ marginTop: value, marginBottom: value }),
       paddingX: (value: number) => ({ paddingLeft: value, paddingRight: value }),
       paddingY: (value: number) => ({ paddingTop: value, paddingBottom: value }),
-      svgFontSize: (value: number) => ({ fontSize: value + 8 }),
     },
   })
 
@@ -66,9 +67,9 @@ export const globalStyles = globalCss({
   },
 
   ':root': {
-    $h1: '30px',
-    $h2: '20px',
-    $h3: '16px',
+    $h1: '20px',
+    $h2: '16px',
+    $h3: '14px',
     $h4: '14px',
     $h5: '14px',
     $h6: '14px',
@@ -76,14 +77,14 @@ export const globalStyles = globalCss({
     $small: '10px',
 
     '@md': {
-      $h1: '48px',
-      $h2: '36px',
-      $h3: '24px',
-      $h4: '20px',
-      $h5: '20px',
-      $h6: '20px',
-      $body: '16px',
-      $small: '12px',
+      $h1: '24px',
+      $h2: '20px',
+      $h3: '16px',
+      $h4: '14px',
+      $h5: '14px',
+      $h6: '14px',
+      $body: '12px',
+      $small: '10px',
     },
   },
 

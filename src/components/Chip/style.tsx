@@ -1,33 +1,27 @@
 import { styled } from '../../configs/stitches.config'
 
 export const StyledChipContainer = styled('span', {
-  borderRadius: '$lg',
+  borderRadius: '$md',
   paddingX: 8,
   paddingY: 4,
   fontWeight: 600,
-  fontSize: 10,
+  fontSize: '$small',
+  border: '1px solid transparent',
 
   variants: {
     color: {
-      actingMode: {
-        backgroundColor: '$greenSystem',
-        color: '$onGreenSystem',
-      },
-      pcd: {
-        backgroundColor: '$yellowSystemDark',
-        color: '$onYellowSystemDark',
-      },
-      highlight: {
-        backgroundColor: '$purpleSystemDark',
-        color: '$onPurpleSystemDark',
+      outlined: {
+        color: '$grayDark',
+        borderColor: '$grayDark',
       },
       urgent: {
-        backgroundColor: '$redSystemDark',
         color: '$onRedSystemDark',
+        borderColor: '$redSystemDark',
       },
       level: {
-        backgroundColor: '$graySoft',
         color: '$onGraySoft',
+        borderColor: '$graySoft',
+        backgroundColor: '$graySoft',
       },
     },
   },

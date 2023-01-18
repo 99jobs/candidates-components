@@ -3,29 +3,19 @@ import { keyframes, styled } from '../../configs/stitches.config'
 
 const showSearchFullScreen = keyframes({
   '0%': {
-    opacity: 0,
+    top: '100%',
   },
   '100%': {
-    opacity: 1,
+    top: 0,
   },
 })
 
-const showSearchGroup = keyframes({
+const hideSearchFullScreen = keyframes({
   '0%': {
-    position: 'fixed',
-    left: 19,
-    right: 19,
-    top: -100,
-    bottom: 'auto',
-    zIndex: 101,
+    top: 0,
   },
   '100%': {
-    position: 'fixed',
-    left: 19,
-    right: 19,
-    top: 26,
-    bottom: 'auto',
-    zIndex: 101,
+    top: '100%',
   },
 })
 
@@ -35,13 +25,9 @@ export const StyledSearchGroup = styled('div', {
   display: 'flex',
   alignItems: 'center',
   boxShadow: '0px 1px 5px rgba(35, 34, 34, 0.15)',
-  borderRadius: 32,
+  borderRadius: '$xxlg',
   paddingX: 6,
   background: '#ffffff',
-
-  '&[data-is-open="true"]': {
-    animation: `${showSearchGroup} 0.3s ease-in-out forwards`,
-  },
 })
 
 export const StyledCloseSearch = styled('button', {
@@ -101,25 +87,27 @@ export const StyledSearchFullScreen = styled(PrimitivePortal.Root, {
   position: 'fixed',
   left: 0,
   right: 0,
-  top: 0,
+  top: '100%',
   bottom: 0,
-  opacity: 0,
   background: '#ffffff',
   zIndex: 100,
-  animation: `${showSearchFullScreen} 0.3s ease-in-out forwards`,
+  maxHeight: '100vh',
+  overflow: 'auto',
+
+  '&[data-state="open"]': {
+    animation: `${showSearchFullScreen} 0.5s ease-in-out forwards`,
+  },
+  '&[data-state="closing"]': {
+    animation: `${hideSearchFullScreen} 0.5s ease-in-out forwards`,
+  },
 })
 
-export const StyledAreaSearchGroup = styled('div', {
-  height: 96,
+export const StyledSearchFullScreenHeader = styled('div', {
+  padding: '26px 19px',
   background: '#FFFFFF',
   boxShadow: '0px 1px 5px rgba(35, 34, 34, 0.15)',
 })
 
-export const StyledSearchFullScreenInner = styled('div', {
+export const StyledSearchFullScreenContent = styled('div', {
   padding: '16px 24px',
-
-  h3: {
-    fontWeight: 700,
-    color: '$grayDark',
-  },
 })

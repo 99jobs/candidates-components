@@ -1,32 +1,65 @@
 import { type ComponentProps } from '@stitches/react'
 import { CloseCircle, SearchNormal1, Setting4 } from 'iconsax-react'
-import { useCallback, useEffect, useState, type FormEvent } from 'react'
+import { useCallback, useEffect, useState, type FormEvent, type ReactNode } from 'react'
 import {
-  StyledAreaSearchGroup,
   StyledCloseSearch,
   StyledSearchContainer,
   StyledSearchFullScreen,
-  StyledSearchFullScreenInner,
+  StyledSearchFullScreenContent,
+  StyledSearchFullScreenHeader,
   StyledSearchGroup,
   StyledSearchInput,
   StyledSearchPrefixIcon,
   StyledSearchSufixIcon,
 } from './style'
 
-export interface SearchProps extends ComponentProps<typeof StyledSearchContainer> {}
+export interface SearchProps extends ComponentProps<typeof StyledSearchContainer> {
+  /**
+   * Elemento que ficará dentro do search quando estiver em full screen
+   */
+  children: ReactNode
+}
 
-export const Search = ({ ...props }: SearchProps) => {
+export const Search = ({ children, ...props }: SearchProps) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isClosing, setIsClosing] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
 
-  const handleOpen = () => {
+  const openSearchFullScreen = () => {
     setIsOpen(true)
+    setIsClosing(false)
+
+    setTimeout(() => {
+      window.scroll({
+        top: 200,
+        behavior: 'smooth',
+      })
+    }, 500)
+  }
+
+  const closeSearchFullScreen = () => {
+    setIsClosing(true)
+
+    setTimeout(() => {
+      window.scroll({
+        top: 0,
+        behavior: 'smooth',
+      })
+    }, 100)
+
+    setTimeout(() => {
+      setIsOpen(false)
+      setIsClosing(false)
+    }, 500)
+  }
+
+  const handleOpen = () => {
     window.location.hash = '#search'
+    openSearchFullScreen()
   }
 
   const handleClose = () => {
-    setIsOpen(false)
-    window.location.hash = ''
+    closeSearchFullScreen()
   }
 
   const handleChange = (event: FormEvent<HTMLInputElement>) => {
@@ -35,9 +68,9 @@ export const Search = ({ ...props }: SearchProps) => {
 
   const hashChangeHandler = useCallback(() => {
     if (window.location.hash === '#search') {
-      handleOpen()
+      openSearchFullScreen()
     } else {
-      handleClose()
+      closeSearchFullScreen()
     }
   }, [])
 
@@ -51,16 +84,10 @@ export const Search = ({ ...props }: SearchProps) => {
 
   return (
     <StyledSearchContainer {...props}>
-      <StyledSearchGroup data-is-open={isOpen}>
-        {isOpen ? (
-          <StyledCloseSearch onClick={handleClose}>
-            <CloseCircle size={18} />
-          </StyledCloseSearch>
-        ) : (
-          <StyledSearchPrefixIcon>
-            <SearchNormal1 size={18} />
-          </StyledSearchPrefixIcon>
-        )}
+      <StyledSearchGroup>
+        <StyledSearchPrefixIcon>
+          <SearchNormal1 size={18} />
+        </StyledSearchPrefixIcon>
 
         <StyledSearchInput
           type="search"
@@ -74,13 +101,28 @@ export const Search = ({ ...props }: SearchProps) => {
         </StyledSearchSufixIcon>
       </StyledSearchGroup>
 
-      {isOpen && (
-        <StyledSearchFullScreen>
-          <StyledAreaSearchGroup />
+      {(isOpen || isClosing) && (
+        <StyledSearchFullScreen data-state={isOpen && !isClosing ? 'open' : 'closing'}>
+          <StyledSearchFullScreenHeader>
+            <StyledSearchGroup>
+              <StyledCloseSearch onClick={handleClose}>
+                <CloseCircle size={18} />
+              </StyledCloseSearch>
 
-          <StyledSearchFullScreenInner>
-            <h3>Sugestões pra você</h3>
-          </StyledSearchFullScreenInner>
+              <StyledSearchInput
+                type="search"
+                placeholder="Busque por oportunidades, empresas..."
+                onFocus={handleOpen}
+                defaultValue={searchTerm}
+                onChange={handleChange}
+              />
+              <StyledSearchSufixIcon>
+                <Setting4 size={16} />
+              </StyledSearchSufixIcon>
+            </StyledSearchGroup>
+          </StyledSearchFullScreenHeader>
+
+          <StyledSearchFullScreenContent>{children}</StyledSearchFullScreenContent>
         </StyledSearchFullScreen>
       )}
     </StyledSearchContainer>

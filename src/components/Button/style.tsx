@@ -2,8 +2,8 @@ import { styled } from '../../configs/stitches.config'
 
 export const StyledButton = styled('button', {
   height: '44px',
-  borderRadius: '$sm',
-  fontSize: 14,
+  borderRadius: '$xxlg',
+  fontSize: '$body',
   fontWeight: 700,
   cursor: 'pointer',
   transition:
@@ -12,7 +12,7 @@ export const StyledButton = styled('button', {
   alignItems: 'center',
   justifyContent: 'center',
   paddingX: 22,
-  gap: 14,
+  gap: 9,
 
   defaultVariants: {
     color: 'default',
@@ -62,9 +62,5 @@ export const StyledButton = styled('button', {
       backgroundColor: '$grayLight',
       color: '$gray',
     },
-  },
-
-  '& > svg': {
-    svgFontSize: 16,
   },
 })

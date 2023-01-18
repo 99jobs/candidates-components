@@ -1,4 +1,5 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { globalStyles } from '../src/configs/stitches.config'
 
 export const parameters = {

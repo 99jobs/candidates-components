@@ -8,7 +8,7 @@ export const StyledHeader = styled('header', {
   alignItems: 'center',
   justifyContent: 'space-between',
 
-  h2: {
+  h1: {
     fontWeight: 400,
 
     strong: {

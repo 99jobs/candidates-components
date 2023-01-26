@@ -9,7 +9,7 @@ export * from 'react-hook-form'
  * Componentes que criamos
  */
 export { Avatar } from './components/Avatar'
-export { Button } from './components/Button'
+export { Button, ButtonLink } from './components/Button'
 export { Carousel } from './components/Carousel'
 export { Checkbox } from './components/Checkbox'
 export { Chip } from './components/Chip'

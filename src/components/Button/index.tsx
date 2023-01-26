@@ -1,6 +1,6 @@
 import { type ComponentProps } from '@stitches/react'
 import { type ReactNode } from 'react'
-import { StyledButton } from './style'
+import { StyledButton, StyledButtonLink } from './style'
 
 export interface ButtonProps extends ComponentProps<typeof StyledButton> {
   /**
@@ -29,4 +29,18 @@ export const Button = ({ label, color, prefixIcon, sufixIcon, ...props }: Button
       {sufixIcon}
     </>
   </StyledButton>
+)
+
+export interface ButtonLinkProps
+  extends ComponentProps<typeof StyledButtonLink>,
+    Pick<ComponentProps<typeof Button>, 'label' | 'prefixIcon' | 'sufixIcon' | 'disabled'> {}
+
+export const ButtonLink = ({ label, color, prefixIcon, sufixIcon, ...props }: ButtonLinkProps) => (
+  <StyledButtonLink {...props} color={color}>
+    <>
+      {prefixIcon}
+      {label}
+      {sufixIcon}
+    </>
+  </StyledButtonLink>
 )

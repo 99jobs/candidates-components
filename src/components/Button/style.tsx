@@ -13,6 +13,7 @@ export const StyledButton = styled('button', {
   justifyContent: 'center',
   paddingX: 22,
   gap: 9,
+  textDecoration: 'none',
 
   defaultVariants: {
     color: 'default',
@@ -62,5 +63,11 @@ export const StyledButton = styled('button', {
       backgroundColor: '$grayLight',
       color: '$gray',
     },
+  },
+})
+
+export const StyledButtonLink = styled('a', StyledButton, {
+  '&[disabled]': {
+    pointerEvents: 'none',
   },
 })

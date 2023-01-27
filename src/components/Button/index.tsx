@@ -1,5 +1,5 @@
 import { type ComponentProps } from '@stitches/react'
-import { type ReactNode } from 'react'
+import { forwardRef, type ReactNode } from 'react'
 import { StyledButton, StyledButtonLink } from './style'
 
 export interface ButtonProps extends ComponentProps<typeof StyledButton> {
@@ -35,12 +35,26 @@ export interface ButtonLinkProps
   extends ComponentProps<typeof StyledButtonLink>,
     Pick<ComponentProps<typeof Button>, 'label' | 'prefixIcon' | 'sufixIcon' | 'disabled'> {}
 
-export const ButtonLink = ({ label, color, prefixIcon, sufixIcon, ...props }: ButtonLinkProps) => (
-  <StyledButtonLink {...props} color={color}>
-    <>
-      {prefixIcon}
-      {label}
-      {sufixIcon}
-    </>
-  </StyledButtonLink>
+export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
+  ({ label, color, prefixIcon, sufixIcon, ...props }, ref) => (
+    <StyledButtonLink {...props} color={color} ref={ref}>
+      <>
+        {prefixIcon}
+        {label}
+        {sufixIcon}
+      </>
+    </StyledButtonLink>
+  )
 )
+
+ButtonLink.displayName = 'ButtonLink'
+
+// export const ButtonLink = ({ label, color, prefixIcon, sufixIcon, ...props }: ButtonLinkProps) => (
+//   <StyledButtonLink {...props} color={color}>
+//     <>
+//       {prefixIcon}
+//       {label}
+//       {sufixIcon}
+//     </>
+//   </StyledButtonLink>
+// )

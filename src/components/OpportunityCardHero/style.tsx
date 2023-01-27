@@ -31,14 +31,14 @@ export const StyledOpportunityCardHero = styled('div', {
     borderRadius: 'inherit',
     pointerEvents: 'none',
   },
+
   [`${StyledCarouselWrapper}`]: {
     height: '100%',
     borderRadius: 'inherit',
     overflow: 'hidden',
 
-    img: {
+    '.slide': {
       height: 178,
-      objectFit: 'cover',
 
       '@md': {
         height: 296,
@@ -47,8 +47,13 @@ export const StyledOpportunityCardHero = styled('div', {
       '@lg': {
         height: 336,
       },
+
+      img: {
+        objectFit: 'cover',
+      },
     },
   },
+
   [`${StyledCompanyLogo}`]: {
     position: 'absolute',
     top: 12,

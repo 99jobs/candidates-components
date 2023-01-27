@@ -3,10 +3,10 @@ import { Eye, EyeSlash } from 'iconsax-react'
 import { forwardRef, useId, useState, type ChangeEvent, type ReactNode } from 'react'
 import { Button } from '../Button'
 import {
+  StyledInputContainer,
   StyledInputField,
   StyledInputHelperText,
   StyledInputLabel,
-  StyledInputWrapper,
 } from './style'
 
 export interface InputProps extends ComponentProps<typeof StyledInputField> {
@@ -60,9 +60,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     }
 
     return (
-      <StyledInputWrapper
+      <StyledInputContainer
         data-is-active={isActive}
         data-has-icon={sufixIconButton !== undefined || showAndHidePasswordButton}
+        data-has-helper-text={errorText !== undefined || helperText !== undefined}
         data-has-error={errorText !== undefined}
       >
         <StyledInputLabel
@@ -87,7 +88,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {(errorText || helperText) && (
           <StyledInputHelperText role="alert">{errorText || helperText}</StyledInputHelperText>
         )}
-      </StyledInputWrapper>
+      </StyledInputContainer>
     )
   }
 )

@@ -4,20 +4,20 @@ import { StyledButton } from '../Button/style'
 export const StyledInputLabel = styled('label', {
   position: 'absolute',
   top: 18,
-  left: 8,
+  left: 0,
   zIndex: -1,
-  fontWeight: 400,
+  fontWeight: 600,
   fontSize: '$body',
-  color: '$gray',
+  color: '$grayDark',
   userSelect: 'none',
   transition: 'top 0.1s linear, font-size 0.1s linear, color 0.1s linear',
 })
 
 export const StyledInputField = styled('input', {
   height: 44,
-  padding: '14px 8px 0 8px',
+  padding: '14px 8px 0 0',
   outline: 'none',
-  borderBottom: '1px solid $grayLight',
+  borderBottom: '1px solid $gray',
   backgroundColor: 'transparent',
 
   '&::placeholder': {
@@ -28,14 +28,13 @@ export const StyledInputField = styled('input', {
 
 export const StyledInputHelperText = styled('span', {
   fontWeight: 400,
-  fontSize: '$small',
-  color: '$gray',
-  paddingLeft: 8,
+  fontSize: '$body',
+  color: '$grayDark',
   position: 'absolute',
-  top: 'calc(100% + 8px)',
+  top: 'calc(100% - 16px)',
 })
 
-export const StyledInputWrapper = styled('div', {
+export const StyledInputContainer = styled('div', {
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
@@ -86,6 +85,10 @@ export const StyledInputWrapper = styled('div', {
         opacity: 1,
       },
     },
+  },
+
+  '&[data-has-helper-text="true"]': {
+    paddingBottom: 24,
   },
 
   '&[data-has-error="true"]': {

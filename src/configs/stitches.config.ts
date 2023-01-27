@@ -53,7 +53,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
 
 export const globalStyles = globalCss({
   '@import': [
-    "url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;500;700;900&display=swap')",
+    "url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;900&display=swap')",
   ],
 
   '*': {

@@ -48,13 +48,3 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
 )
 
 ButtonLink.displayName = 'ButtonLink'
-
-// export const ButtonLink = ({ label, color, prefixIcon, sufixIcon, ...props }: ButtonLinkProps) => (
-//   <StyledButtonLink {...props} color={color}>
-//     <>
-//       {prefixIcon}
-//       {label}
-//       {sufixIcon}
-//     </>
-//   </StyledButtonLink>
-// )

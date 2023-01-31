@@ -7,4 +7,5 @@ export const StyledBottomBarList = styled(PrimitiveNavigationMenu.List, {
   justifyContent: 'center',
   alignItems: 'center',
   gap: 48,
+  height: 72,
 })

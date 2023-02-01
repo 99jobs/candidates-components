@@ -9,6 +9,10 @@ export * from 'react-hook-form'
  * Componentes que criamos
  */
 export { Avatar } from './components/Avatar'
+export { BottomBar } from './components/BottomBar'
+export { BottomBarList } from './components/BottomBarList'
+export { BottomBarListItem } from './components/BottomBarListItem'
+export { BottomBarListLink } from './components/BottomBarListLink'
 export { Button, ButtonLink } from './components/Button'
 export { Carousel } from './components/Carousel'
 export { Checkbox } from './components/Checkbox'

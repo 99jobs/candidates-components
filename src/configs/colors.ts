@@ -53,7 +53,7 @@ export const colors = {
   gradientYellowDarkLight: 'linear-gradient(180deg, #FFC100 0%, #FFD656 100%)',
   onGradientYellowDarkLight: '#FFFFFF',
 
-  backgroundGrayLight: '#F4F4F4',
+  backgroundGrayLight: '#F9F9F9',
   onBackgroundGrayLight: '#525252',
 
   graySoft: '#DFE1E2',

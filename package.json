@@ -7,6 +7,7 @@
     "@radix-ui/react-avatar": "^1.0.1",
     "@radix-ui/react-checkbox": "^1.0.1",
     "@radix-ui/react-dialog": "^1.0.0",
+    "@radix-ui/react-navigation-menu": "^1.1.1",
     "@radix-ui/react-popover": "1.0.0",
     "@radix-ui/react-portal": "^1.0.1",
     "@radix-ui/react-radio-group": "^1.1.0",

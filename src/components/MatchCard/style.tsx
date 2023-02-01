@@ -6,7 +6,7 @@ export const StyledMatchCard = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   textAlign: 'center',
-  boxShadow: '0px 1px 5px rgba(35, 34, 34, 0.15)',
+  boxShadow: '$md',
   borderRadius: '$md',
   padding: '27px 38px',
 

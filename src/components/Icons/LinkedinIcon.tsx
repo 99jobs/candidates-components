@@ -1,10 +1,13 @@
-export const LinkedinIcon = () => (
+import { type SVGProps } from 'react'
+
+export const LinkedinIcon = ({ ...props }: SVGProps<SVGSVGElement>) => (
   <svg
     width="17"
     height="18"
     viewBox="0 0 17 18"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <path d="M3.85041 6.16602H0.341064V17.4945H3.85041V6.16602Z" fill="currentColor" />
     <path

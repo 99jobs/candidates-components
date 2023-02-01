@@ -39,11 +39,7 @@ const Template: ComponentStory<typeof BottomBar> = (args) => {
         </BottomBarListItem>
 
         <BottomBarListItem>
-          <BottomBarListLink
-            active={current === '4'}
-            onClick={() => setCurrent('4')}
-            hasNotification
-          >
+          <BottomBarListLink active={current === '4'} onClick={() => setCurrent('4')} hasBadge>
             <Notification variant={current === '4' ? 'Bold' : 'Linear'} />
             Notificação
           </BottomBarListLink>

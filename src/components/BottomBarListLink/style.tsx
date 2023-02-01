@@ -28,7 +28,7 @@ export const StyledBottomBarListLink = styled(PrimitiveNavigationMenu.Link, {
     },
   },
 
-  '&[data-has-notification="true"]': {
+  '&[data-has-badge="true"]': {
     '&:before': {
       content: '',
       width: 8,

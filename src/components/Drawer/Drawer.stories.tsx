@@ -1,7 +1,6 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { useState } from 'react'
 import { Drawer } from '.'
-import { DrawerFooter } from '../DrawerFooter'
 import { NavMenu } from '../NavMenu'
 import { NavMenuList } from '../NavMenuList'
 import { NavMenuListItem } from '../NavMenuListItem'
@@ -88,8 +87,6 @@ const Template: ComponentStory<typeof Drawer> = (args) => {
           </NavMenuListItem>
         </NavMenuList>
       </NavMenu>
-
-      <DrawerFooter />
     </Drawer>
   )
 }

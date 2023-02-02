@@ -7,5 +7,5 @@ export const StyledBottomBar = styled(PrimitiveNavigationMenu.Root, {
   left: 0,
   right: 0,
   background: '$backgroundGrayLight',
-  zIndex: 1,
+  zIndex: 2,
 })

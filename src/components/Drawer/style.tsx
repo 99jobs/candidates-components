@@ -12,6 +12,7 @@ export const StyledDrawer = styled('div', {
   overflowX: 'hidden',
   overflowY: 'auto',
   paddingX: 20,
+  zIndex: 2,
 
   defaultVariants: {
     visibility: 'hidden',

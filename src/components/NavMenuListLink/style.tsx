@@ -9,7 +9,7 @@ export const StyledNavMenuListLink = styled(PrimitiveNavigationMenu.Link, {
   alignItems: 'center',
   justifyContent: 'space-between',
   paddingY: 8,
-  borderBottom: '1px solid $gray',
+  borderBottom: '1px solid $grayLight',
 
   svg: {
     color: '$bluePrimary',

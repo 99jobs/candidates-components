@@ -37,9 +37,9 @@ export const Checkbox = forwardRef(
               <path
                 d="M12.3332 1L4.99984 8.33333L1.6665 5"
                 stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </StyledCheckboxIndicator>

@@ -11,6 +11,8 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
         h2: 'var(--h2)',
         h3: 'var(--h3)',
         h4: 'var(--h4)',
+        h5: 'var(--h5)',
+        h6: 'var(--h6)',
         body: 'var(--body)',
         small: 'var(--small)',
       },
@@ -31,7 +33,10 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
         xlg: '16px',
         xxlg: '32px',
       },
-      shadows: {},
+      shadows: {
+        sm: '0px 3px 5px rgba(35, 34, 34, 0.3)',
+        md: '0px 1px 5px rgba(35, 34, 34, 0.15)',
+      },
       zIndices: {},
       transitions: {},
     },
@@ -78,7 +83,7 @@ export const globalStyles = globalCss({
 
     '@md': {
       $h1: '24px',
-      $h2: '20px',
+      $h2: '16px',
       $h3: '16px',
       $h4: '14px',
       $h5: '14px',

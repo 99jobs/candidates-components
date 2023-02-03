@@ -24,7 +24,7 @@ export const StyledSearchContainer = styled('div', {})
 export const StyledSearchGroup = styled('div', {
   display: 'flex',
   alignItems: 'center',
-  boxShadow: '0px 1px 5px rgba(35, 34, 34, 0.15)',
+  boxShadow: '$md',
   borderRadius: '$xxlg',
   paddingX: 6,
   background: '#ffffff',
@@ -107,7 +107,7 @@ export const StyledSearchFullScreen = styled(PrimitivePortal.Root, {
 export const StyledSearchFullScreenHeader = styled('div', {
   padding: '26px 19px',
   background: '#FFFFFF',
-  boxShadow: '0px 1px 5px rgba(35, 34, 34, 0.15)',
+  boxShadow: '$md',
 })
 
 export const StyledSearchFullScreenContent = styled('div', {

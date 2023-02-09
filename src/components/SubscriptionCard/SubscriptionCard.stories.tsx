@@ -31,7 +31,10 @@ Default.args = {
         </SubscriptionCardOpenUntil>
       </SubscriptionCardContent>
 
-      <SubscriptionCardLogo src="https://e3ba6e8732e83984.cdn.gocache.net/uploads/image/file/2649247/regular_f75dbd2bbeb7bd07e7f003fbe1f5920e.png" />
+      <SubscriptionCardLogo
+        src="https://e3ba6e8732e83984.cdn.gocache.net/uploads/image/file/2649247/regular_f75dbd2bbeb7bd07e7f003fbe1f5920e.png"
+        alt="Logotipo empresa Xpto"
+      />
     </>
   ),
 }

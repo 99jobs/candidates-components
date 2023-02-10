@@ -25,8 +25,8 @@ const Template: ComponentStory<typeof Drawer> = (args) => {
           </NavMenuListItem>
         </NavMenuList>
 
+        <h1>Recrutadores</h1>
         <NavMenuList>
-          <h1>Recrutadores</h1>
           <NavMenuListItem>
             <NavMenuListLink active={current === '2'} onClick={() => setCurrent('2')}>
               Eleven
@@ -40,8 +40,8 @@ const Template: ComponentStory<typeof Drawer> = (args) => {
           </NavMenuListItem>
         </NavMenuList>
 
+        <h1>Saiba mais</h1>
         <NavMenuList>
-          <h1>Saiba mais</h1>
           <NavMenuListItem>
             <NavMenuListLink active={current === '4'} onClick={() => setCurrent('4')}>
               A 99 Jobs

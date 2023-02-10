@@ -13,13 +13,22 @@ export default {
 const Template: ComponentStory<typeof Carousel> = (args) => (
   <Carousel {...args}>
     <div>
-      <img src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg" />
+      <img
+        src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg"
+        alt="Imagem X"
+      />
     </div>
     <div>
-      <img src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg" />
+      <img
+        src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg"
+        alt="Imagem Y"
+      />
     </div>
     <div>
-      <img src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg" />
+      <img
+        src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg"
+        alt="Imagem Z"
+      />
     </div>
   </Carousel>
 )

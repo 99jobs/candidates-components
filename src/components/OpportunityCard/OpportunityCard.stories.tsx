@@ -27,17 +27,29 @@ Default.args = {
       <OpportunityCardHero>
         <Carousel showArrows={false} showStatus={false}>
           <div>
-            <img src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg" />
+            <img
+              src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg"
+              alt="Descrição da Imagem A"
+            />
           </div>
           <div>
-            <img src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg" />
+            <img
+              src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg"
+              alt="Descrição da Imagem B"
+            />
           </div>
           <div>
-            <img src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg" />
+            <img
+              src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg"
+              alt="Descrição da Imagem C"
+            />
           </div>
         </Carousel>
 
-        <CompanyLogo src="https://e3ba6e8732e83984.cdn.gocache.net/uploads/image/file/2649247/regular_f75dbd2bbeb7bd07e7f003fbe1f5920e.png" />
+        <CompanyLogo
+          src="https://e3ba6e8732e83984.cdn.gocache.net/uploads/image/file/2649247/regular_f75dbd2bbeb7bd07e7f003fbe1f5920e.png"
+          alt="Logotipo da Empresa X"
+        />
 
         <OpportunityExpiresIn>Restam 24h</OpportunityExpiresIn>
 
@@ -49,7 +61,7 @@ Default.args = {
       <OpportunityCardContent>
         <h1>Estágio em Product Design Júnior</h1>
 
-        <FavoriteButton />
+        <FavoriteButton aria-label="Botão Favoritar Oportunidade" />
 
         <OpportunityTags>
           <Chip label="Remoto" color="outlined" />

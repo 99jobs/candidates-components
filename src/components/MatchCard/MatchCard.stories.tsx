@@ -27,12 +27,18 @@ Default.args = {
         }}
       >
         <MatchAvatar>
-          <img src="https://99prod.s3.amazonaws.com/uploads/b6cb741d-a754-42d7-9d0e-62d133e906b1/4.png" />
+          <img
+            src="https://99prod.s3.amazonaws.com/uploads/b6cb741d-a754-42d7-9d0e-62d133e906b1/4.png"
+            alt="Ícone Free Spirit"
+          />
           Free Spirit
         </MatchAvatar>
 
         <MatchAvatar>
-          <img src="https://99prod.s3.amazonaws.com/uploads/9f812100-ea5f-49cf-afd2-e69160b6223b/3.png" />
+          <img
+            src="https://99prod.s3.amazonaws.com/uploads/9f812100-ea5f-49cf-afd2-e69160b6223b/3.png"
+            alt="Ícone Social Impact"
+          />
           Social Impact
         </MatchAvatar>
       </div>

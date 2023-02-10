@@ -87,7 +87,7 @@ export const Search = ({ children, ...props }: SearchProps) => {
           defaultValue={searchTerm}
           onChange={handleChange}
         />
-        <StyledSearchSufixIcon>
+        <StyledSearchSufixIcon role="none">
           <Setting4 size={16} />
         </StyledSearchSufixIcon>
       </StyledSearchGroup>

@@ -41,7 +41,7 @@ export const StyledCloseSearch = styled('button', {
   cursor: 'pointer',
 })
 
-export const StyledSearchPrefixIcon = styled('button', {
+export const StyledSearchPrefixIcon = styled('span', {
   width: 34,
   height: 34,
   display: 'inline-flex',
@@ -66,7 +66,7 @@ export const StyledSearchInput = styled('input', {
   },
 })
 
-export const StyledSearchSufixIcon = styled('button', {
+export const StyledSearchSufixIcon = styled('span', {
   width: 34,
   height: 34,
   display: 'inline-flex',

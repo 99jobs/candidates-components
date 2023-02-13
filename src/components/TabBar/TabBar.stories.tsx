@@ -70,8 +70,8 @@ Testing.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   await new Promise((r) => setTimeout(r, 1000))
 
-  // Testa se as 4 tabs estão na tela
-  expect(canvas.getAllByRole('tab')).toHaveLength(4)
+  // Testa se as 6 tabs estão na tela
+  expect(canvas.getAllByRole('tab')).toHaveLength(6)
 
   // Testa se a tab inicial selecionada é a tab2
   expect(canvas.getAllByRole('tab')[1]).toHaveAttribute('aria-selected', 'true')

@@ -32,4 +32,9 @@ export const StyledDrawer = styled('div', {
   [`${StyledNavMenuList}`]: {
     marginBottom: 24,
   },
+
+  h1: {
+    color: '$gray',
+    marginBottom: 24,
+  },
 })

@@ -4,6 +4,7 @@ import { styled } from '../../configs/stitches.config'
 export const StyledTabBarItems = styled(PrimitiveTabs.List, {
   display: 'flex',
   overflowX: 'auto',
+  overflowY: 'hidden',
   position: 'relative',
 
   '.active-border': {

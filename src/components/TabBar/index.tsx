@@ -39,7 +39,7 @@ export const TabBar = ({ isLoading, children, ...props }: TabBarProps) => {
   }, [props.value])
 
   return (
-    <StyledTabBar {...props} onValueChange={handleChange} ref={tabBarItemsRef}>
+    <StyledTabBar onValueChange={handleChange} ref={tabBarItemsRef} {...props}>
       {isLoading && (
         <TabBarItems aria-label="carregando tabs">
           {[...Array(10)].map((_, index) => (

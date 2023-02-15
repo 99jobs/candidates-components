@@ -1,6 +1,6 @@
 import { styled } from '../../configs/stitches.config'
 
-export const StyledNotificationCard = styled('li', {
+export const StyledNotificationCard = styled('div', {
   width: '100%',
   maxWidth: 320,
   display: 'flex',

@@ -4,7 +4,7 @@ export const StyledNotificationCardContent = styled('div', {
   flexGrow: 1,
   position: 'relative',
 
-  div: {
+  '& > div': {
     fontSize: '$body',
     color: '$grayDark',
     fontWeight: 400,

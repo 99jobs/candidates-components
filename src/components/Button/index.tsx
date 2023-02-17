@@ -19,10 +19,21 @@ export interface ButtonProps extends ComponentProps<typeof StyledButton> {
    * O ícone que fica ao lado direito do texto
    */
   sufixIcon?: ReactNode
+  /**
+   * Se é um IconButton
+   */
+  isIconButton?: boolean
 }
 
-export const Button = ({ label, color, prefixIcon, sufixIcon, ...props }: ButtonProps) => (
-  <StyledButton {...props} color={color}>
+export const Button = ({
+  label,
+  color,
+  prefixIcon,
+  sufixIcon,
+  isIconButton,
+  ...props
+}: ButtonProps) => (
+  <StyledButton {...props} color={color} isIconButton={isIconButton}>
     <>
       {prefixIcon}
       {label}
@@ -36,8 +47,8 @@ export interface ButtonLinkProps
     Pick<ComponentProps<typeof Button>, 'label' | 'prefixIcon' | 'sufixIcon' | 'disabled'> {}
 
 export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
-  ({ label, color, prefixIcon, sufixIcon, ...props }, ref) => (
-    <StyledButtonLink {...props} color={color} ref={ref}>
+  ({ label, color, prefixIcon, sufixIcon, isIconButton, ...props }, ref) => (
+    <StyledButtonLink color={color} isIconButton={isIconButton} ref={ref} {...props}>
       <>
         {prefixIcon}
         {label}

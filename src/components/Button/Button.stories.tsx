@@ -1,5 +1,5 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { Profile } from 'iconsax-react'
+import { CloseCircle, Profile } from 'iconsax-react'
 import { Button } from './index'
 
 export default {
@@ -48,6 +48,13 @@ export const DefaultWithoutLabel = Template.bind({})
 DefaultWithoutLabel.args = {
   prefixIcon: <Profile size={19} />,
   'aria-label': 'Botão para salvar o formulário de Dados Pessoais',
+}
+
+export const IconButton = Template.bind({})
+IconButton.args = {
+  isIconButton: true,
+  prefixIcon: <CloseCircle size={26} />,
+  'aria-label': 'Botão para fazer tal ação',
 }
 
 export const Outlined = Template.bind({})

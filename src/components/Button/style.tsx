@@ -20,6 +20,21 @@ export const StyledButton = styled('button', {
   },
 
   variants: {
+    isIconButton: {
+      true: {
+        padding: 0,
+        width: 26,
+        height: 26,
+        color: '$grayDark',
+        backgroundColor: 'transparent',
+        border: '1px solid transparent',
+
+        '&:hover': {
+          color: '$grayDark',
+          backgroundColor: '$backgroundGrayLight',
+        },
+      },
+    },
     color: {
       default: {
         backgroundColor: '$bluePrimary',

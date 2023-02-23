@@ -20,21 +20,21 @@ export const StyledButton = styled('button', {
   },
 
   variants: {
-    isIconButton: {
-      true: {
-        padding: 0,
-        width: 26,
-        height: 26,
-        color: '$grayDark',
-        backgroundColor: 'transparent',
-        border: '1px solid transparent',
+    // isIconButton: {
+    //   true: {
+    //     padding: 0,
+    //     width: 26,
+    //     height: 26,
+    //     color: '$grayDark',
+    //     backgroundColor: 'transparent',
+    //     border: '1px solid transparent',
 
-        '&:hover': {
-          color: '$grayDark',
-          backgroundColor: '$backgroundGrayLight',
-        },
-      },
-    },
+    //     '&:hover': {
+    //       color: '$grayDark',
+    //       backgroundColor: '$backgroundGrayLight',
+    //     },
+    //   },
+    // },
     color: {
       default: {
         backgroundColor: '$bluePrimary',
@@ -63,6 +63,19 @@ export const StyledButton = styled('button', {
 
         '&:hover': {
           borderColor: '$bluePrimary',
+        },
+      },
+      onlyIcon: {
+        padding: 0,
+        width: 26,
+        height: 26,
+        color: '$grayDark',
+        backgroundColor: 'transparent',
+        border: '1px solid transparent',
+
+        '&:hover': {
+          color: '$grayDark',
+          backgroundColor: '$backgroundGrayLight',
         },
       },
     },

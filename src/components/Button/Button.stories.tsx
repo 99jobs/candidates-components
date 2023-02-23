@@ -52,7 +52,7 @@ DefaultWithoutLabel.args = {
 
 export const IconButton = Template.bind({})
 IconButton.args = {
-  isIconButton: true,
+  color: 'onlyIcon',
   prefixIcon: <CloseCircle size={26} />,
   'aria-label': 'Botão para fazer tal ação',
 }

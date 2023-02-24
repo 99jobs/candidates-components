@@ -21,6 +21,6 @@ export const StyledCompanyCardHighlightedTag = styled('div', {
     top: 21,
     left: 0,
     clipPath: 'polygon(0 0, 100% 100%, 100% 0)',
-    zIndex: -1,
+    zIndex: 0,
   },
 })

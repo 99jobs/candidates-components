@@ -6,6 +6,7 @@ export const StyledCompanyCard = styled('div', {
   height: 120,
   position: 'relative',
   borderRadius: '$md',
+  flexShrink: 0,
 
   defaultVariants: {
     size: 'sm',

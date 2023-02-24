@@ -71,6 +71,12 @@ export const globalStyles = globalCss({
     lineHeight: '1.36',
   },
 
+  body: {
+    '&.no-scroll': {
+      overflow: 'hidden',
+    },
+  },
+
   ':root': {
     $h1: '20px',
     $h2: '16px',

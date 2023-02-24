@@ -33,7 +33,7 @@ export const StyledDrawer = styled('div', {
     marginBottom: 24,
   },
 
-  h1: {
+  'ul h1': {
     color: '$gray',
     marginBottom: 24,
   },

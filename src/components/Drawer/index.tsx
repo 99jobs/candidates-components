@@ -1,4 +1,5 @@
 import { type ComponentProps } from '@stitches/react'
+import { useEffect } from 'react'
 import { StyledDrawer } from './style'
 
 export interface DrawerProps extends ComponentProps<typeof StyledDrawer> {
@@ -8,6 +9,14 @@ export interface DrawerProps extends ComponentProps<typeof StyledDrawer> {
   visibility?: 'visible' | 'hidden'
 }
 
-export const Drawer = ({ visibility = 'hidden', ...props }: DrawerProps) => (
-  <StyledDrawer visibility={visibility} {...props}></StyledDrawer>
-)
+export const Drawer = ({ visibility = 'hidden', ...props }: DrawerProps) => {
+  useEffect(() => {
+    if (visibility === 'visible') {
+      document.body.classList.add('no-scroll')
+    } else {
+      document.body.classList.remove('no-scroll')
+    }
+  }, [visibility])
+
+  return <StyledDrawer visibility={visibility} {...props}></StyledDrawer>
+}

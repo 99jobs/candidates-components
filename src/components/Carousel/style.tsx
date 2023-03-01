@@ -13,4 +13,15 @@ export const StyledCarouselWrapper = styled('div', {
   '.carousel .control-dots .dot.selected': {
     backgroundColor: '#fff',
   },
+  '.carousel .carousel-status': {
+    borderRadius: '$md',
+    backgroundColor: 'rgba(77, 80, 86, 0.8)',
+    color: '#fff',
+    fontSize: '$body',
+    fontWeight: 600,
+    paddingX: 16,
+    top: 'auto',
+    bottom: 21,
+    right: 14,
+  },
 })

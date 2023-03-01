@@ -11,7 +11,7 @@ export const StyledCompanyTopInfos = styled('div', {
     height: 82,
     borderRadius: '50%',
 
-    '@md': {
+    '@sm': {
       width: 112,
       height: 112,
     },

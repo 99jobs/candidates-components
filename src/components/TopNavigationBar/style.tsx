@@ -7,6 +7,10 @@ export const StyledTopNavigationBarContainer = styled(PrimitiveToolbar.Root, {
   gap: '1rem',
   justifyContent: 'space-between',
   padding: 16,
+  background: '#fff',
+  position: 'sticky',
+  top: 0,
+  zIndex: 2,
 })
 
 export const StyledBackButton = styled('div', {

@@ -1,20 +1,15 @@
 import { styled } from '../../configs/stitches.config'
 
-export const StyledCollectionCard = styled('a', {
-  textDecoration: 'none',
-  fontSize: '$body',
-  fontWeight: 700,
-  color: '$bluePrimary',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 8,
-  paddingLeft: 8,
+export const StyledCollectionCard = styled('div', {
+  width: '100%',
+  maxWidth: 320,
+  flexShrink: 0,
 
-  img: {
-    width: 155,
-    height: 112,
-    borderRadius: '$md',
-    objectFit: 'cover',
-    marginLeft: -8,
+  '@md': {
+    maxWidth: 560,
+  },
+
+  '@lg': {
+    maxWidth: 593,
   },
 })

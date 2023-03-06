@@ -22,7 +22,7 @@ export const parameters = {
   },
   viewport: {
     viewports: INITIAL_VIEWPORTS,
-    defaultViewport: 'galaxys9',
+    defaultViewport: 'iphone5',
   },
 }
 

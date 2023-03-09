@@ -4,6 +4,7 @@ import { StyledOpportunityOpenUntil } from '../OpportunityOpenUntil/style'
 
 export const StyledOpportunityCardContent = styled('div', {
   position: 'relative',
+  textDecoration: 'none',
 
   [`${StyledFavoriteButton}`]: {
     position: 'absolute',

@@ -6,4 +6,15 @@ export const StyledMatch = styled('div', {
   fontWeight: 600,
   color: '$onGrayDark',
   textAlign: 'center',
+  position: 'relative',
+
+  span: {
+    width: '100%',
+    textAlign: 'center',
+    color: '#fff',
+    position: 'absolute',
+    top: '50%',
+    marginTop: -16,
+    fontSize: 'x-small',
+  },
 })

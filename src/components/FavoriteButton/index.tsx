@@ -8,10 +8,19 @@ export interface StyledFavoriteButtonProps extends ComponentProps<typeof StyledF
    * false = é um ícone outline que fica vermelho no hover/ativo
    */
   isFilled?: boolean
+
+  /**
+   * Botão ativo (vermelho preenchido)
+   */
+  favorited?: boolean
 }
 
-export const FavoriteButton = ({ isFilled = false, ...props }: StyledFavoriteButtonProps) => (
-  <StyledFavoriteButton isFilled={isFilled} {...props}>
+export const FavoriteButton = ({
+  isFilled = false,
+  favorited = false,
+  ...props
+}: StyledFavoriteButtonProps) => (
+  <StyledFavoriteButton isFilled={isFilled} data-favorited={favorited} {...props}>
     <Heart size={25} />
   </StyledFavoriteButton>
 )

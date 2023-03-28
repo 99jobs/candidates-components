@@ -3,13 +3,15 @@ import { StyledFavoriteButton } from '../FavoriteButton/style'
 import { StyledOpportunityOpenUntil } from '../OpportunityOpenUntil/style'
 
 export const StyledOpportunityCardContent = styled('div', {
+  width: 'calc(100% - 50px)',
+  display: 'block',
   position: 'relative',
   textDecoration: 'none',
 
   [`${StyledFavoriteButton}`]: {
     position: 'absolute',
     top: 0,
-    right: 20,
+    right: -40,
   },
 
   [`${StyledOpportunityOpenUntil}`]: {
